@@ -402,3 +402,32 @@ console.log(relevantSongsFinder(songs, user, 4, 'songs TOTAL array'))
 // }
 
 // console.log(almostPlay(user, 1))
+
+
+const totalChordsTest= ['G', 'B', 'C', 'Cm', 'C', 'Am', 'F', 'G', 'E7', 'C', 'C/E', 'F', 'Am', 'D', 'F#', 'C', 'F', 'Dm', 'G', 'Em', 'Am', 'C', 'G', 'F', 'D', 'Dm', 'Bb', 'A', 'F#m', 'D', 'E', 'C', 'G', 'Am', 'F', 'Em', 'Asus2', 'D', 'C', 'G', 'A', 'Em', 'B7', 'Am', 'E', 'C', 'G', 'Am', 'Am7', 'Fmaj7', 'F6', 'F', 'E', 'D', 'Am', 'Fmaj7', 'C', 'G', 'F', 'D', 'A', 'Bm', 'G', 'G', 'D/F#', 'C', 'Am7', 'Em', 'Am', 'D', 'C/G', 'Bm', 'G/D', 'G', 'Am', 'Em', 'C', 'A', 'Bb', 'C', 'Dm', 'F', 'Bb5', 'C5', 'C/E', 'D5', 'F5', 'A5', 'G', 'Em', 'Em7', 'C', 'G/B', 'Am', 'Am7', 'D', 'C/B', 'Am6', 'Am', 'D/F#']
+
+const totalChordsObject={}
+totalChordsTest.forEach((el, index)=> {
+    if(index===totalChordsTest.indexOf(el)) {
+        // console.log('first ', el)
+        totalChordsObject[el]=1
+        // Object.entries(totalChordsObject)=(`${el}: 1`)
+    }
+    if (totalChordsObject[el]) {
+        (totalChordsObject[el])++;
+    }
+
+})
+
+let sortedChords=[];
+for (let key in totalChordsObject) {
+    sortedChords.push([key, totalChordsObject[key]])
+}
+// console.log(sortedChords, 'SORTED CHORDS')
+
+const sortedChordsObject = Object.fromEntries(
+    Object.entries(totalChordsObject).sort(([,a],[,b]) => b-a)
+);
+
+console.log(sortedChordsObject, 'SORT CHORDS ARRAY')
+// console.log(totalChordsObject)

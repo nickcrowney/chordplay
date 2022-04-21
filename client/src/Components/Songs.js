@@ -4,26 +4,32 @@ import SongListOneFalse from "./SongListOneFalse";
 import SongListTwoFalse from "./SongListTwoFalse";
 
 export default function Songs({user, songs}) {
+    if (!songs) return (
+        <h1>
+          loading...
+        </h1>
+        );
+    console.log(songs.length, 'SONGS TOTAL')
+
 
 
 
     let canPlaySongs=[];
 
 
-    if (!songs) return (
-        <h1>
-          loading...
-        </h1>
-        );
 
 
     const checkOnlyChords = (user) => {
         canPlaySongs = [];
-        songs.map(el => {
-            if (el["chords"]
-        .every(el=> user["chordsKnow"].includes(el))) canPlaySongs.push(el)
-    })
-        return canPlaySongs;
+        if (songs) {
+
+            songs.map(el => {
+                if (el["chords"]
+                .every(el=> user["chordsKnow"].includes(el))) canPlaySongs.push(el)
+            })
+            return canPlaySongs;
+        }
+        else (console.log('Didnt run checkOnlyChords'))
     }
     checkOnlyChords(user);
 

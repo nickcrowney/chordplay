@@ -75,7 +75,7 @@ const urlScrape= async () => {
 // // setTimeout(()=>{console.log(urls, urls.length, 'urls timed')}, 2000);
 // // setTimeout(()=>{console.log(allChords, allChords.length, 'all chords timed')}, 3000);
 
-
+//---------------------------------------------------
 
 const scrape = async (url) => {
     const browser = await puppeteer.launch({

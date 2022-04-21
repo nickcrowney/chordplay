@@ -9,9 +9,9 @@ export default function SongListTwoFalse({eachSong, user}) {
             return missedChord;
         })
     const twoMissedChords= missedChord[0]+' & '+missedChord[1]
-    console.log(missedChord, 'MISSING CHORD')
+    // console.log(missedChord, 'MISSING CHORD')
 
-    console.log(eachSong, 'EACH SONG')
+    // console.log(eachSong, 'EACH SONG')
   return (
     <>
             <div key={eachSong._id}>

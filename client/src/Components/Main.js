@@ -2,7 +2,19 @@ import './Main.css'
 import Songs from './Songs'
 
 
-export default function Main({user, songs}) {
+export default function Main({user, songs, sortedChordsObject }) {
+
+    // const filteredChordsArray= [];
+    const sortedChordsArray = Object.keys(sortedChordsObject)
+
+    // song.chords.forEach((el)=>{
+    //     if (!user.chordsKnow.includes(el)) {
+    //         missingChord.push(el)
+    //     }
+    // });
+    const filteredChordsArray=sortedChordsArray.filter(el=>!user.chordsKnow.includes(el))
+    console.log(filteredChordsArray, 'filtered chords Array HERE')
+
     return (
 
         <div>
@@ -20,6 +32,10 @@ export default function Main({user, songs}) {
             <p></p>
             <div>
                 Last chord you learned: {user.chordsKnow[user.chordsKnow.length-1]}
+            </div>
+            <div>   The most common chord is: {Object.keys(sortedChordsObject)[0]}
+            </div>
+            <div>   The next chord you should learn is: {filteredChordsArray[0]}
             </div>
             <Songs user={user} songs={songs}/>
 

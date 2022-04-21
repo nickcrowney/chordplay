@@ -11,7 +11,7 @@ export default function SongListOneFalse({eachSong, user}) {
             // else {console.log(el, 'not this one')}
             return missedChord;
         })
-    console.log(missedChord, 'MISSING CHORD')
+    // console.log(missedChord, 'MISSING CHORD')
 
 
     // const [missingChord, setMissingChord] = useState('E7')
@@ -30,7 +30,7 @@ export default function SongListOneFalse({eachSong, user}) {
     // setMissingChord(missChord)
 
     // const {eachSong}=song
-    console.log(eachSong, 'EACH SONG')
+    // console.log(eachSong, 'EACH SONG')
   return (
     <>
             <div key={eachSong._id}>

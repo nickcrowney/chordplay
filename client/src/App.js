@@ -20,7 +20,7 @@ import Sidebar from './Components/Sidebar';
 // }
 function App() {
   // const [urls, setUrl] = useState([]);
-  const [songs, setSong] = useState('firstState here')
+  const [songs, setSong] = useState(null);
   const [user, setUser] = useState(null);
 
   function getData() {
@@ -45,16 +45,43 @@ function App() {
     getData();
     // console.log(user, 'user here', songs, 'songs here')
   }, []);
-if (!user) return (
 
+if (!user||!songs) return (
 <h1>
   loading...
-
-  {/* <script>
-    console.log('no user!')
-  </script> */}
 </h1>
 );
+let totalChordsArray=[];
+    songs.forEach(el=>{
+        totalChordsArray=[ ...totalChordsArray, ...el.chords]
+    })
+    console.log(totalChordsArray, 'total chords')
+
+    const totalChordsObject={}
+    totalChordsArray.forEach((el, index)=> {
+        if(index===totalChordsArray.indexOf(el)) {
+            // console.log('first ', el)
+            totalChordsObject[el]=1
+            // Object.entries(totalChordsObject)=(`${el}: 1`)
+        }
+        if (totalChordsObject[el]) {
+            (totalChordsObject[el])++;
+        }
+
+    })
+
+    let sortedChords=[];
+    for (let key in totalChordsObject) {
+        sortedChords.push([key, totalChordsObject[key]])
+    }
+    // console.log(sortedChords, 'SORTED CHORDS')
+
+    const sortedChordsObject = Object.fromEntries(
+        Object.entries(totalChordsObject).sort(([,a],[,b]) => b-a)
+    );
+
+    console.log(sortedChordsObject, 'SORT CHORDS ARRAY')
+
   return (
     <>
       {/* <div>
@@ -68,7 +95,7 @@ if (!user) return (
       </div>
       <div className='mainpage'>
           <Sidebar user={user} songs={songs}/>
-        <Main user={user} songs={songs}/>
+        <Main user={user} songs={songs} sortedChordsObject={sortedChordsObject}/>
       </div>
     <div className="App" >
     {/* onClick={} */}
