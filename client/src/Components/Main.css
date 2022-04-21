@@ -1,0 +1,23 @@
+.btn {
+    background-color: #282c34;
+    color: white;
+    cursor: pointer;
+}
+.chordsknow-notification {
+    display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-bottom: 1vh;
+  }
+
+  .songsmastered-notification {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-bottom: 1vh;
+  }
+
+  .main-notification {
+    display: flex;
+    justify-content: center;
+  }

@@ -1,0 +1,21 @@
+{"songsdb":
+    {
+        "songs":[
+        {
+
+            "title": "Hallelujah",
+            "artist": "Jeff Buckley",
+            "url": "https://tabs.ultimate-guitar.com/tab/jeff-buckley/hallelujah-chords-198052",
+            "capo": "1st fret",
+            "chords": [ "C", "Am", "F", "G", "E7" ]
+        },
+        {
+            "title": "Creep",
+            "artist": "Radiohead",
+            "url": "https://tabs.ultimate-guitar.com/tab/radiohead/creep-chords-4169",
+            "capo": "none",
+            "chords": [ "G", "B", "C", "Cm" ]
+        }
+    ]
+}
+}
