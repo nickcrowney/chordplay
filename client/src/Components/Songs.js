@@ -2,6 +2,7 @@
 import SongList from "./SongList";
 import SongListOneFalse from "./SongListOneFalse";
 import SongListTwoFalse from "./SongListTwoFalse";
+import './Songs.css'
 
 export default function Songs({user, songs}) {
     if (!songs) return (
@@ -9,7 +10,7 @@ export default function Songs({user, songs}) {
           loading...
         </h1>
         );
-    console.log(songs.length, 'SONGS TOTAL')
+    // console.log(songs.length, 'SONGS TOTAL')
 
 
 
@@ -84,9 +85,9 @@ const relevantSongsFinder = (songs, user, numberMissingChords) =>{
 
 
     const oneFalse = relevantSongsFinder(songs, user, 1)
-    console.log(oneFalse, 'ONE FALSE')
+    // console.log(oneFalse, 'ONE FALSE')
     const twoFalse = relevantSongsFinder(songs, user, 2)
-    console.log(twoFalse, 'TWO FALSE')
+    // console.log(twoFalse, 'TWO FALSE')
 
     return (
         <>
@@ -101,6 +102,8 @@ const relevantSongsFinder = (songs, user, numberMissingChords) =>{
                         )
                     }
                     )}
+                    {(canPlaySongs.length===0)?'none yet... learn a some chords and be amazed with what you can do!': ''}
+
                 </div>
             </ul>
           </div>

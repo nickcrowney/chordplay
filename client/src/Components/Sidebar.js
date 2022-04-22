@@ -1,30 +1,37 @@
 import './Sidebar.css'
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link,
-    // BrowserRouter
-  } from "react-router-dom";
+import {BrowserRouter, Router, Route} from 'react-router-dom'
+import React from 'react'
+
 
 import Chords from './Chords';
 import Songs from './Songs';
 import App from '../App';
+import Home from './Home';
 // import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
-export default function Sidebar ({user, songs}) {
+function Sidebar ({user, songs}) {
     return (
-        <Router>
-            <div className='Sidebar'>
+        <BrowserRouter>
+            <Route path='/' component={Home} exact/>
+            <Route path='/songs' component={Songs}/>
+            <Route path='/chords' component={Chords}/>
+        </BrowserRouter>
+        {/* <Router> */}
+
+
+            {/* <div className='Sidebar'>
                 <ul>
-                    <Link to="/" className="home-btn btn" >Home</Link>
+                    <Link to="/" className="home-btn btn neon-red" >Home</Link>
                 </ul>
                 <ul>
-                    <Link to="/songs" className="songs-btn btn" >Songs</Link>
+                    <Link to="/songs" className="songs-btn btn delay2 neon-red">Songs</Link>
                 </ul>
                 <ul>
-                    <Link to="/chords" className="chords-btn btn" >Chords</Link>
+                    <Link to="/chords" className="chords-btn btn delay3 neon-red">Chords</Link>
                 </ul>
+            </div> */}
+
+
 
                 {/* <ul>
                     <Link to="/" className="songsPotential-btn btn" >Songs I Can Play</Link>
@@ -55,7 +62,6 @@ export default function Sidebar ({user, songs}) {
           </Route>
         </Routes> */}
 
-            </div>
             {/* <div>
             </div>
             <div>
@@ -76,7 +82,10 @@ export default function Sidebar ({user, songs}) {
             <div>
                 <button className="chordsExplore-btn btn">Explore Chords</button>
             </div> */}
-        </Router>
+        {/* </Router> */}
+
 
     )
 }
+
+export default Sidebar;

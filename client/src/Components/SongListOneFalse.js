@@ -34,7 +34,7 @@ export default function SongListOneFalse({eachSong, user}) {
   return (
     <>
             <div key={eachSong._id}>
-                {eachSong.title} - {eachSong.artist} - you would need to learn the chord: {missedChord}
+            <a className="each-song" href={eachSong.url}>{eachSong.title} - {eachSong.artist}</a> - you would need to learn the chord: {missedChord}
             </div>
     </>
   )

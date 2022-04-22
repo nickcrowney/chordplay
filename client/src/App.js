@@ -55,7 +55,7 @@ let totalChordsArray=[];
     songs.forEach(el=>{
         totalChordsArray=[ ...totalChordsArray, ...el.chords]
     })
-    console.log(totalChordsArray, 'total chords')
+    // console.log(totalChordsArray, 'total chords')
 
     const totalChordsObject={}
     totalChordsArray.forEach((el, index)=> {
@@ -80,7 +80,7 @@ let totalChordsArray=[];
         Object.entries(totalChordsObject).sort(([,a],[,b]) => b-a)
     );
 
-    console.log(sortedChordsObject, 'SORT CHORDS ARRAY')
+    // console.log(sortedChordsObject, 'SORT CHORDS ARRAY')
 
   return (
     <>

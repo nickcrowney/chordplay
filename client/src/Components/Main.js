@@ -13,13 +13,39 @@ export default function Main({user, songs, sortedChordsObject }) {
     //     }
     // });
     const filteredChordsArray=sortedChordsArray.filter(el=>!user.chordsKnow.includes(el))
-    console.log(filteredChordsArray, 'filtered chords Array HERE')
+    // console.log(filteredChordsArray, 'filtered chords Array HERE')
+
+    const chordFrequency =(chord)=> {
+        let numberSongsContainingChord=0
+        songs.forEach(element => {
+            if(element.chords.includes(chord)) numberSongsContainingChord++
+        });
+        return Math.ceil((numberSongsContainingChord/songs.length)*100);
+    }
+    // filteredChordsArray[0]
+    const newChord='';
+    const patchChordsKnow= [...user.chordsKnow, newChord]
+const handleClick = (e)=>{
+    const chordsUser={newChord}
+    console.log(chordsUser)
+    // e.preventDefault();
+}
 
     return (
 
-        <div>
+        <div className='main'>
         <div className='main-notification'>
+            <form className='input-form'>
+                <label>Input chord learned:</label>
+                <div>
+
+                <input className='input-box' type='text' value={newChord} required placeholder='Enter new chord...'></input>
+                <button onClick={handleClick}>Enter</button>
+                 {/* console.log(e)}}>Enter</button> */}
+                </div>
+            </form>
             <div className='chordsknow-notification'>
+
             You know {user.chordsKnow? user.chordsKnow.length:0} chords.
           </div>
           <div className='songsmastered-notification'>
@@ -33,9 +59,13 @@ export default function Main({user, songs, sortedChordsObject }) {
             <div>
                 Last chord you learned: {user.chordsKnow[user.chordsKnow.length-1]}
             </div>
-            <div>   The most common chord is: {Object.keys(sortedChordsObject)[0]}
+            <div>   The most common chord in popular music is: {Object.keys(sortedChordsObject)[0]}
             </div>
-            <div>   The next chord you should learn is: {filteredChordsArray[0]}
+            <div>   The next chords you should learn are: {filteredChordsArray[0]} or {filteredChordsArray[1]}
+            </div>
+            <div>   The {filteredChordsArray[0]} chord is used in {chordFrequency(filteredChordsArray[0])}% of popular songs.
+            </div>
+            <div>   The {filteredChordsArray[1]} chord is used in {chordFrequency(filteredChordsArray[1])}% of popular songs.
             </div>
             <Songs user={user} songs={songs}/>
 

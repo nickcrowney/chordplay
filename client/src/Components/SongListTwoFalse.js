@@ -15,7 +15,7 @@ export default function SongListTwoFalse({eachSong, user}) {
   return (
     <>
             <div key={eachSong._id}>
-                {eachSong.title} - {eachSong.artist} - you would need to learn the chords: {twoMissedChords}
+            <a className="each-song" href={eachSong.url}>{eachSong.title} - {eachSong.artist}</a> - you would need to learn the chords: {twoMissedChords}
 
             </div>
     </>
