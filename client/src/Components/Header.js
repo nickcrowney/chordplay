@@ -13,9 +13,12 @@ export default function Header({ user }) {
     if (numberChords < 12) {
       return 'ready for a jam';
     }
-    if (numberChords < 15) {
+    if (numberChords < 16) {
       return 'intermediate';
-    } else return 'pro';
+    }
+    if (numberChords < 20) {
+      return 'pro';
+    } else return 'rockstar';
   };
   const skill = skillLevel(chordsKnown);
   return (

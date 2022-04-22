@@ -1,5 +1,5 @@
 import './Sidebar.css';
-import { BrowserRouter, Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import React from 'react';
 
 import Chords from './Chords';
@@ -13,19 +13,25 @@ function Sidebar({ user, songs }) {
     <>
       <div className="Sidebar">
         <ul>
-          <a href="/" className="home-btn btn neon-red">
-            Home
-          </a>
+          <nav>
+            <Link to="/" className="home-btn btn neon-red">
+              Home
+            </Link>
+          </nav>
         </ul>
         <ul>
-          <a href="/songs" className="songs-btn btn delay2 neon-red">
-            Songs
-          </a>
+          <nav>
+            <Link to="/songs" className="songs-btn btn delay2 neon-red">
+              Songs
+            </Link>
+          </nav>
         </ul>
         <ul>
-          <a href="/chords" className="chords-btn btn delay3 neon-red">
-            Chords
-          </a>
+          <nav>
+            <Link to="/chords" className="chords-btn btn delay3 neon-red">
+              Chords
+            </Link>
+          </nav>
         </ul>
       </div>
     </>
