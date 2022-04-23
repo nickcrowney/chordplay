@@ -1,7 +1,8 @@
 import Main from './Main';
-import Chord from './Chord';
+import ChordsKnow from './ChordsKnow';
 
 export default function Chords(props) {
+  //   console.log(props.userChords, 'USER CHORDS HERE');
   return (
     <>
       <div>
@@ -12,11 +13,11 @@ export default function Chords(props) {
         />
       </div>
       <div>
-        {props.userChords}
+        {/* {props.userChords} */}
         {props.userChords &&
-          props.userChords.forEach((el) => {
+          props.userChords.map((el) => {
             console.log(el, 'CHORDS');
-            return <Chord eachChord={el} />;
+            return <ChordsKnow eachChord={el} />;
           })}
       </div>
     </>
