@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   name: String,
-  chordsKnow: [String],
-  chordsNext: [String],
+  chordsKnow: [Object],
   songsMastered: [String],
 });
 

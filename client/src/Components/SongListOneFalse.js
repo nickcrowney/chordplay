@@ -3,7 +3,7 @@ export default function SongListOneFalse({eachSong, user}) {
     let missedChord=''
     eachSong.chords.forEach((el)=>{
         // console.log(el, 'el')
-            if (!user.chordsKnow.includes(el)) {
+            if (!user.chordsKnow.map(el=>el.chord).includes(el)) {
                 // console.log(el, 'MISSING el')
                 missedChord=el;
                 return el;

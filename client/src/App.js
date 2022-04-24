@@ -7,41 +7,34 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Components/Home';
 import Songs from './Components/Songs';
 import Chords from './Components/Chords';
+// import {UserData} from './Extras/Data';
+import LineChart from './Extras/LineChart';
+// import Data from './Extras/Data'
 
-// const initialUser= {
-//   "_id": "62601bef6976086e5b4f0718",
-//   "title": "Creep",
-//   "artist": "Radiohead",
-//   "url": "https://tabs.ultimate-guitar.com/tab/radiohead/creep-chords-4169",
-//   "capo": "none",
-//   "chords": [
-//       "G",
-//       "B",
-//       "C",
-//       "Cm"
-//   ],
-//   "__v": 0
-// }
+
+
 function App() {
-  // const [urls, setUrl] = useState([]);
   const [songs, setSong] = useState(null);
   const [user, setUser] = useState(null);
   const [userChords, setUserChords] = useState(null);
   const [userSongs, setUserSongs] = useState(null);
+  const [totalChordsObjectDate, setTotalChordsObjectDate] = useState(null);
+
+
+
+
 
   function getData() {
     fetch('http://localhost:3100/songs')
       .then((res) => res.json())
       .then((res) => {
-        // const first = res
-        // console.log(first)
+
         setSong(res);
       });
     fetch('http://localhost:3100/users')
       .then((res) => res.json())
       .then((res) => {
         const first = res[0];
-        // console.log(first)
         setUser(first);
       });
 
@@ -57,7 +50,6 @@ function App() {
       .then((res) => res.json())
       .then((res) => {
         const first = res[0].songsMastered;
-        // console.log(first)
         setUserSongs(first);
       });
   }
@@ -67,6 +59,7 @@ function App() {
   }, []);
 
   if (!user || !songs) return <h1>loading...</h1>;
+
   let totalChordsArray = [];
   songs.forEach((el) => {
     totalChordsArray = [...totalChordsArray, ...el.chords];
@@ -96,6 +89,7 @@ function App() {
   );
 
   // console.log(sortedChordsObject, 'SORT CHORDS ARRAY')
+  console.log(userChords, 'userChords here', songs, 'songs here', userSongs, '< userSongs', sortedChordsObject, '< sortedChordsObject')
 
   return (
     <Router>
@@ -103,6 +97,10 @@ function App() {
         {/* <div>
         <div class="lds-ripple"><div></div><div></div></div>
       </div> */}
+        {/* <div>
+          <Data user={user}/>
+        </div> */}
+
         <div>
           <Header user={user} />
         </div>
@@ -115,16 +113,20 @@ function App() {
               element={
                 <Home
                   user={user}
+                  setUser={setUser}
                   songs={songs}
                   sortedChordsObject={sortedChordsObject}
                   userChords={userChords}
                   userSongs={userSongs}
+                  // userData={userData}
                 />
               }
             ></Route>
             <Route
               path="/songs"
-              element={<Songs user={user} songs={songs} />}
+              element={<Songs user={user} songs={songs} sortedChordsObject={sortedChordsObject}
+                  userChords={userChords}
+                  userSongs={userSongs}/>}
             ></Route>
             <Route
               path="/chords"
@@ -135,6 +137,8 @@ function App() {
                   sortedChordsObject={sortedChordsObject}
                   userChords={userChords}
                   userSongs={userSongs}
+                  totalChordsObjectDate={totalChordsObjectDate}
+                  setTotalChordsObjectDate={setTotalChordsObjectDate}
                 />
               }
             ></Route>
@@ -151,6 +155,7 @@ function App() {
             )
         })} */}
           </p>
+
         </div>
       </>
     </Router>

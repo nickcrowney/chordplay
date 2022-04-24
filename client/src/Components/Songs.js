@@ -1,20 +1,24 @@
 import SongList from './SongList';
 import SongListOneFalse from './SongListOneFalse';
 import SongListTwoFalse from './SongListTwoFalse';
-import './Songs.css';
+import '../Styles/Songs.css';
 
-export default function Songs({ user, songs }) {
+export default function Songs({ user, songs, sortedChordsObject,
+    userChords,
+    userSongs}) {
   if (!songs) return <h1>loading...</h1>;
   // console.log(songs.length, 'SONGS TOTAL')
-
+console.log(userChords, 'USER CHORDS HERE!!!')
   let canPlaySongs = [];
+    let chordsUserCanPlay = user.chordsKnow.map(el=>el.chord)
 
   const checkOnlyChords = (user) => {
     canPlaySongs = [];
     if (songs) {
-      songs.map((el) => {
-        if (el['chords'].every((el) => user['chordsKnow'].includes(el)))
-          canPlaySongs.push(el);
+      songs.map((song) => {
+          console.log(chordsUserCanPlay, 'chords know array');
+        if (song['chords'].every((song) => {chordsUserCanPlay.includes(song)}))
+          canPlaySongs.push(song);
       });
       return canPlaySongs;
     } else console.log('Didnt run checkOnlyChords');
@@ -25,16 +29,20 @@ export default function Songs({ user, songs }) {
   let relevantSongs = [];
   let missingChord = [];
 
-  const relevantSongFinder = (song, user, numberMissingChords) => {
+  const relevantFinder = (song, user, numberMissingChords) => {// THIS WORKS
     relevantSongs = [];
 
     missingChord = [];
-
+    console.log(song, 'SONG HERE !')
     song.chords.forEach((el) => {
-      if (!user.chordsKnow.includes(el)) {
+        // console.log(el, 'CHORD OF SONG')
+      if (!chordsUserCanPlay.includes(el)) {
+          console.log(el, 'MISSING CHORD')
+          console.log(missingChord, 'MISSING CHORD ARRAY')
         missingChord.push(el);
       }
     });
+    // console.log(missingChord, 'MISSING CHORD ARRAY')
     if (missingChord.length === numberMissingChords) relevantSongs.push(song);
     return relevantSongs;
   };
@@ -47,7 +55,7 @@ export default function Songs({ user, songs }) {
     relevantSongsTotal = [];
 
     songs.forEach((el, index) => {
-      relevantSongFinder(el, user, numberMissingChords);
+      relevantFinder(el, user, numberMissingChords);
       if (relevantSongs.length) {
         relevantSongsTotal = [...relevantSongsTotal, ...relevantSongs];
       }
@@ -65,15 +73,15 @@ export default function Songs({ user, songs }) {
   // // //     );
 
   const oneFalse = relevantSongsFinder(songs, user, 1);
-  // console.log(oneFalse, 'ONE FALSE')
+//   console.log(oneFalse, 'ONE FALSE')
   const twoFalse = relevantSongsFinder(songs, user, 2);
-  // console.log(twoFalse, 'TWO FALSE')
+  console.log(twoFalse, 'TWO FALSE')
 
   return (
     <>
       <p></p>
       <div className="songs-can-play-list">
-        With the chords you know, you can play these songs:
+        {canPlaySongs.length? 'With the chords you know, you can play these songs:':''}
         <ul>
           <div>
             {canPlaySongs &&
@@ -81,15 +89,14 @@ export default function Songs({ user, songs }) {
                 return <SongList eachSong={el} />;
               })}
             {canPlaySongs.length === 0
-              ? 'none yet... learn a some chords and be amazed with what you can do!'
+              ? 'You don\'t know enough chords to play any songs... yet. Learn some chords and be amazed with what you can do!'
               : ''}
           </div>
         </ul>
       </div>
 
       <div className="songs-one-false-list">
-        If you learn one more chord, you could play {oneFalse.length} more
-        songs:
+      {oneFalse.length? ('If you learn one more chord, you could play '+oneFalse.length +' more songs:'):''}
         <ul>
           <div>
             {oneFalse &&

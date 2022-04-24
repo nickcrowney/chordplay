@@ -50,9 +50,16 @@
 
 .mainpage {
   display: flex;
+  background-color: #282c34d4;
+  color: white;
+
 }
 
 .home-quote {
   display: flex;
   flex-direction: column;
+}
+
+.c-major {
+  height: 10vh;
 }

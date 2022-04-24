@@ -1,4 +1,4 @@
-import './Sidebar.css';
+import '../Styles/Sidebar.css';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import React from 'react';
 

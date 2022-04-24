@@ -3,7 +3,7 @@
 export default function SongListTwoFalse({eachSong, user}) {
     let missedChord=[]
     eachSong.chords.forEach((el)=>{
-            if (!user.chordsKnow.includes(el)) {
+            if (!user.chordsKnow.map(el=>el.chord).includes(el)) {
                 missedChord.push(el);
             }
             return missedChord;

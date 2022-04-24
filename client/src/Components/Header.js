@@ -1,8 +1,8 @@
 // import Header from '../App'
-import './Header.css';
+import '../Styles/Header.css';
 
 export default function Header({ user }) {
-  const chordsKnown = user.chordsKnow.length;
+  const chordsKnown = user.chordsKnow?.length;
   const skillLevel = (numberChords) => {
     if (numberChords < 4) {
       return 'just started';
@@ -11,14 +11,23 @@ export default function Header({ user }) {
       return 'beginner';
     }
     if (numberChords < 12) {
+        return 'amateur';
+      }
+    if (numberChords < 16) {
       return 'ready for a jam';
     }
-    if (numberChords < 16) {
+    if (numberChords < 20) {
       return 'intermediate';
     }
-    if (numberChords < 20) {
-      return 'pro';
-    } else return 'rockstar';
+    if (numberChords < 24) {
+      return 'semi-pro';
+    }
+    if (numberChords < 28) {
+        return 'pro';
+      }
+    if (numberChords < 32) {
+        return 'rockstar';
+      } else return 'Guitar George';
   };
   const skill = skillLevel(chordsKnown);
   return (
