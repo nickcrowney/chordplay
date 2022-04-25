@@ -9,9 +9,11 @@ export default function Main({
   songs,
   sortedChordsObject,
   userChords,
-  userSongs,
+  userSongsMastered,
+  newChord,
+  setNewChord,
 }) {
-  const [filteredChordsArray, setFilteredChordsArray] = useState({});
+  const [filteredChordsArray, setFilteredChordsArray] = useState({}); //NOT BEING USED?
 
   const sortedChordsArray = Object.keys(sortedChordsObject);
   const currentDate = dayjs().format('YYYY-MM-DD');
@@ -19,7 +21,7 @@ export default function Main({
 
   console.log(filteredChordsArray, 'filtered chords Array HERE');
   console.log(sortedChordsArray, 'SORTED CHORDS ARRAY');
-
+  console.log(user.chordsKnow, 'CHORDS KNOW USER');
   // THIS NEEDS TO BE REFACTORED - USE STATE INSTEAD
   const filtChords = sortedChordsArray.filter(
     (el) => !user.chordsKnow.map((el) => el.chord)?.includes(el)
@@ -45,22 +47,31 @@ export default function Main({
     return Math.ceil((numberSongsContainingChord / songs.length) * 100);
   };
 
-  const [newChord, setNewChord] = useState('');
+  //   const [newChord, setNewChord] = useState('');
 
   const handleClick = (e) => {
+    e.preventDefault();
     let patchChordsKnow = [];
     if (user.chordsKnow) {
       patchChordsKnow = [...user.chordsKnow, newChord];
     } else {
       patchChordsKnow = [newChord];
     }
-    console.log(e, 'EEEE');
-    console.log(e.target.value, 'TARGET');
-    e.preventDefault();
+
     const chordsUser = { newChord };
     console.log(chordsUser);
     // e.preventDefault();
-    setUser(user.chordsKnow.push(newChord));
+    // setUser(user.chordsKnow.push(newChord)); -> user = ...
+    setUser((prev) => {
+      prev.chordsKnow.push(newChord);
+      return prev;
+    });
+
+    setNewChord({
+      chord: e.target.value,
+      dateLearned: currentDate,
+    });
+
     fetch('http://localhost:3100/users/626040d11ab47a40bbac456b', {
       method: 'PATCH',
       body: JSON.stringify({
@@ -71,6 +82,7 @@ export default function Main({
       },
     });
   };
+  console.log(user.chordsKnow, 'USER CHORDS KNOW HERE');
 
   return (
     <div className="main">
@@ -83,12 +95,12 @@ export default function Main({
               type="text"
               required
               placeholder="Enter new chord..."
-              onChange={(e) => {
-                setNewChord({
-                  chord: e.target.value,
-                  dateLearned: currentDate,
-                });
-              }}
+              //   onChange={(e) => {
+              //     setNewChord({
+              //       chord: e.target.value,
+              //       dateLearned: currentDate,
+              //     });
+              //   }}
             ></input>
             {/* value={newChord} */}
             <button onClick={handleClick}>Enter</button>

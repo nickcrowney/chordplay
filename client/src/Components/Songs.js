@@ -8,7 +8,7 @@ export default function Songs({
   songs,
   sortedChordsObject,
   userChords,
-  userSongs,
+  userSongsMastered,
 }) {
   if (!songs) return <h1>loading...</h1>;
   // console.log(songs.length, 'SONGS TOTAL')

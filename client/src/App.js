@@ -14,10 +14,12 @@ import Chords from './Components/Chords';
 function App() {
   const [songs, setSong] = useState(null);
   const [user, setUser] = useState(null);
+
   const [userChords, setUserChords] = useState(null);
-  const [userSongs, setUserSongs] = useState(null);
+  const [userSongsMastered, setUserSongsMastered] = useState(null);
   const [totalChordsObjectDate, setTotalChordsObjectDate] = useState(null);
   // const [filteredChordsArray, setFilteredChordsArray]= useState({})
+  // const [newChord, setNewChord] = useState('');
 
   function getData() {
     fetch('http://localhost:3100/songs')
@@ -44,7 +46,7 @@ function App() {
       .then((res) => res.json())
       .then((res) => {
         const first = res[0].songsMastered;
-        setUserSongs(first);
+        setUserSongsMastered(first);
       });
   }
   useEffect(() => {
@@ -54,6 +56,8 @@ function App() {
   console.log(userChords, 'USER CHORDS APP ');
 
   if (!user || !songs) return <h1>loading...</h1>;
+
+  //======================
 
   let totalChordsArray = [];
   songs.forEach((el) => {
@@ -89,7 +93,7 @@ function App() {
     'userChords here',
     songs,
     'songs here',
-    userSongs,
+    userSongsMastered,
     '< userSongs',
     sortedChordsObject,
     '< sortedChordsObject'
@@ -121,10 +125,12 @@ function App() {
                   songs={songs}
                   sortedChordsObject={sortedChordsObject}
                   userChords={userChords}
-                  userSongs={userSongs}
+                  userSongsMastered={userSongsMastered}
                   // filteredChordsArray= {filteredChordsArray}
                   // setFilteredChordsArray={setFilteredChordsArray}
                   // userData={userData}
+                  // newChord={newChord}
+                  // setNewChord={setNewChord}
                 />
               }
             ></Route>
@@ -136,7 +142,7 @@ function App() {
                   songs={songs}
                   sortedChordsObject={sortedChordsObject}
                   userChords={userChords}
-                  userSongs={userSongs}
+                  userSongsMastered={userSongsMastered}
                 />
               }
             ></Route>
@@ -145,13 +151,16 @@ function App() {
               element={
                 <Chords
                   user={user}
+                  setUser={setUser}
                   songs={songs}
                   sortedChordsObject={sortedChordsObject}
                   userChords={userChords}
                   setUserChords={setUserChords}
-                  userSongs={userSongs}
+                  userSongsMastered={userSongsMastered}
                   totalChordsObjectDate={totalChordsObjectDate}
                   setTotalChordsObjectDate={setTotalChordsObjectDate}
+                  // newChord={newChord}
+                  // setNewChord={setNewChord}
                 />
               }
             ></Route>

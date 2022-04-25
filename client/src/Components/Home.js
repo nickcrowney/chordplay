@@ -96,7 +96,9 @@ function Home(props) {
             songs={props.songs}
             sortedChordsObject={props.sortedChordsObject}
             userChords={props.userChords}
-            userSongs={props.userSongs}
+            userSongsMastered={props.userSongsMastered}
+            newChord={props.newChord}
+            setNewChord={props.setNewChord}
             // filteredChordsArray= {props.filteredChordsArray}
             // etFilteredChordsArray={props.setFilteredChordsArray}
           />
