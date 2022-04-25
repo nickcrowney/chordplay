@@ -118,7 +118,9 @@ export default function Main({
       <p></p>
       <div>
         Last chord you learned:{' '}
-        {user.chordsKnow[user.chordsKnow.length - 1].chord}
+        {user.chordsKnow.length
+          ? user.chordsKnow[user.chordsKnow.length - 1].chord
+          : "None... Let's get started!"}
       </div>
       <div>
         {' '}

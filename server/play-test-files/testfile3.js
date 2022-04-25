@@ -26,6 +26,47 @@
 
 // console.log(totalTrue);
 
-var dayjs = require('dayjs');
-const currentDate = dayjs().format('YYYY-MM-DD');
-console.log(currentDate);
+// var dayjs = require('dayjs');
+// const currentDate = dayjs().format('YYYY-MM-DD');
+// console.log(currentDate);
+
+user = {
+  _id: '626040d11ab47a40bbac456b',
+  name: 'Bolito',
+  chordsKnow: [
+    {
+      chord: 'D',
+      dateLearned: '2022-04-23',
+    },
+    {
+      chord: 'A',
+      dateLearned: '2022-04-23',
+    },
+    {
+      chord: 'C',
+      dateLearned: '2022-04-24',
+    },
+    {
+      chord: 'F',
+      dateLearned: '2022-04-24',
+    },
+    {
+      chord: 'F#',
+      dateLearned: '2022-04-24',
+    },
+    {
+      chord: 'C#',
+      dateLearned: '2022-04-24',
+    },
+  ],
+  songsMastered: [],
+  __v: 194,
+};
+
+const currentChord = 'F';
+const chordsKnowArray = user.chordsKnow;
+const chordIndex = user.chordsKnow.map((el) => el.chord).indexOf(currentChord);
+console.log(chordIndex);
+console.log(chordsKnowArray);
+chordsKnowArray.splice(chordIndex, 1);
+console.log(chordsKnowArray);
