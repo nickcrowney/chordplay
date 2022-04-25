@@ -8,7 +8,10 @@ import BarChart from '../Extras/BarChart';
 
 
 function Home(props) {
-    const chordsTime=  props.user.chordsKnow.map(el=>{
+    // if (!props.user || !props.songs) <h1>loading...</h1>;
+
+    console.log(props.user.chordsKnow, 'USER CHORDS KNOW HOME')
+    const chordsTime=  props.user?.chordsKnow.map(el=>{
         return el.dateLearned
       })
 
@@ -101,6 +104,9 @@ function Home(props) {
             sortedChordsObject={props.sortedChordsObject}
             userChords={props.userChords}
             userSongs={props.userSongs}
+            // filteredChordsArray= {props.filteredChordsArray}
+            // etFilteredChordsArray={props.setFilteredChordsArray}
+
           />
         </div>
           <div style={{ width: 700 }}>

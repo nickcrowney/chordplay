@@ -19,7 +19,7 @@ function App() {
   const [userChords, setUserChords] = useState(null);
   const [userSongs, setUserSongs] = useState(null);
   const [totalChordsObjectDate, setTotalChordsObjectDate] = useState(null);
-
+  // const [filteredChordsArray, setFilteredChordsArray]= useState({})
 
 
 
@@ -41,9 +41,9 @@ function App() {
     fetch('http://localhost:3100/users')
       .then((res) => res.json())
       .then((res) => {
-        const first = res[0].chordsKnow;
+        const first = res[0].chordsKnow.map(el=>el.chord);
 
-        console.log(first, 'CHORDS KNOW');
+        console.log(first, 'CHORDS KNOW APPJS');
         setUserChords(first);
       });
     fetch('http://localhost:3100/users')
@@ -57,6 +57,7 @@ function App() {
     getData();
     // console.log(user, 'user here', songs, 'songs here')
   }, []);
+  console.log(userChords,'USER CHORDS APP ')
 
   if (!user || !songs) return <h1>loading...</h1>;
 
@@ -118,6 +119,8 @@ function App() {
                   sortedChordsObject={sortedChordsObject}
                   userChords={userChords}
                   userSongs={userSongs}
+                  // filteredChordsArray= {filteredChordsArray}
+                  // setFilteredChordsArray={setFilteredChordsArray}
                   // userData={userData}
                 />
               }
@@ -136,6 +139,7 @@ function App() {
                   songs={songs}
                   sortedChordsObject={sortedChordsObject}
                   userChords={userChords}
+                  setUserChords={setUserChords}
                   userSongs={userSongs}
                   totalChordsObjectDate={totalChordsObjectDate}
                   setTotalChordsObjectDate={setTotalChordsObjectDate}

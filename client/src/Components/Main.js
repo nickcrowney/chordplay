@@ -3,9 +3,20 @@ import '../Styles/Main.css';
 import Songs from './Songs';
 var dayjs = require('dayjs');
 
-export default function Main(props) {
+export default function Main({user,
+    setUser,
+    songs,
+    sortedChordsObject,
+    userChords,
+    userSongs }) {
+
+        const [filteredChordsArray, setFilteredChordsArray]= useState({
+
+        })
+
+
   // const filteredChordsArray= [];
-  const sortedChordsArray = Object.keys(props.sortedChordsObject);
+  const sortedChordsArray = Object.keys(sortedChordsObject);
   //   const currentDate = dayjs().toISOString();
   const currentDate = dayjs().format('YYYY-MM-DD');
   console.log(currentDate);
@@ -14,17 +25,35 @@ export default function Main(props) {
   //         missingChord.push(el)
   //     }
   // });
-  const filteredChordsArray = sortedChordsArray.filter(
-    (el) => !props.user.chordsKnow.chord?.includes(el)
-  );
-  // console.log(filteredChordsArray, 'filtered chords Array HERE')
+
+    console.log(filteredChordsArray, 'filtered chords Array HERE')
+    console.log(sortedChordsArray, 'SORTED CHORDS ARRAY')
+
+    // THIS NEEDS TO BE REFACTORED - USE STATE INSTEAD
+    const filtChords= sortedChordsArray.filter(
+        (el) => !user.chordsKnow.map(el=>el.chord)?.includes(el)
+      )
+      console.log(filtChords, 'FILT')
+
+  // THIS NEEDS TO BE MADE FUNCTIONAL FOR CHANGES WITHOUT RELOAD
+// //   setFilteredChordsArray({ chords: (sortedChordsArray.filter(
+// //     (el) => !user.chordsKnow.map(el=>el.chord)?.includes(el)
+// //   ))});
+
+// //   useEffect(() => {
+// //     setFilteredChordsArray();
+// //     // console.log(user, 'user here', songs, 'songs here')
+// //   }, []);
+  console.log(filteredChordsArray, 'filtered chords Array HERE AFTER')
+
+
 
   const chordFrequency = (chord) => {
     let numberSongsContainingChord = 0;
-    props.songs.forEach((element) => {
+    songs.forEach((element) => {
       if (element.chords.includes(chord)) numberSongsContainingChord++;
     });
-    return Math.ceil((numberSongsContainingChord / props.songs.length) * 100);
+    return Math.ceil((numberSongsContainingChord / songs.length) * 100);
   };
   // filteredChordsArray[0]
   //   let newChord = '';
@@ -33,8 +62,8 @@ export default function Main(props) {
 
   const handleClick = (e) => {
     let patchChordsKnow = [];
-  if (props.user.chordsKnow) {
-    patchChordsKnow = [...props.user.chordsKnow, newChord];
+  if (user.chordsKnow) {
+    patchChordsKnow = [...user.chordsKnow, newChord];
   } else {
     patchChordsKnow = [newChord];
   }
@@ -44,7 +73,7 @@ export default function Main(props) {
     const chordsUser = { newChord };
     console.log(chordsUser);
     // e.preventDefault();
-    props.setUser(props.user.chordsKnow.push(newChord))
+    setUser(user.chordsKnow.push(newChord))
     fetch('http://localhost:3100/users/626040d11ab47a40bbac456b', {
       method: 'PATCH',
       body: JSON.stringify({
@@ -81,12 +110,12 @@ export default function Main(props) {
           </div>
         </form>
         <div className="chordsknow-notification">
-          You know {props.user.chordsKnow ? props.user.chordsKnow.length : 0}{' '}
+          You know {user.chordsKnow ? user.chordsKnow.length : 0}{' '}
           chords.
         </div>
         <div className="songsmastered-notification">
           You have mastered{' '}
-          {props.user.songsMastered ? props.user.songsMastered.length : 0}{' '}
+          {user.songsMastered ? user.songsMastered.length : 0}{' '}
           songs.
         </div>
       </div>
@@ -96,27 +125,27 @@ export default function Main(props) {
       <p></p>
       <div>
         Last chord you learned:{' '}
-        {props.user.chordsKnow[props.user.chordsKnow.length - 1].chord}
+        {user.chordsKnow[user.chordsKnow.length - 1].chord}
       </div>
       <div>
         {' '}
         The most common chord in popular music is:{' '}
-        {Object.keys(props.sortedChordsObject)[0]}
+        {Object.keys(sortedChordsObject)[0]}
       </div>
       <div>
         {' '}
-        The next chords you should learn are: {filteredChordsArray[0]} or{' '}
-        {filteredChordsArray[1]}
+        The next chords you should learn are: {filtChords[0]} or{' '}
+        {filtChords[1]}
       </div>
       <div>
         {' '}
-        The {filteredChordsArray[0]} chord is used in{' '}
-        {chordFrequency(filteredChordsArray[0])}% of popular songs.
+        The {filtChords[0]} chord is used in{' '}
+        {chordFrequency(filtChords[0])}% of popular songs.
       </div>
       <div>
         {' '}
-        The {filteredChordsArray[1]} chord is used in{' '}
-        {chordFrequency(filteredChordsArray[1])}% of popular songs.
+        The {filtChords[1]} chord is used in{' '}
+        {chordFrequency(filtChords[1])}% of popular songs.
       </div>
       {/* <Songs user={user} songs={songs} /> */}
     </div>

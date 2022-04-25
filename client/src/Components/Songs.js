@@ -8,7 +8,7 @@ export default function Songs({ user, songs, sortedChordsObject,
     userSongs}) {
   if (!songs) return <h1>loading...</h1>;
   // console.log(songs.length, 'SONGS TOTAL')
-console.log(userChords, 'USER CHORDS HERE!!!')
+// console.log(userChords, 'USER CHORDS HERE!!!')
   let canPlaySongs = [];
     let chordsUserCanPlay = user.chordsKnow.map(el=>el.chord)
 
@@ -16,7 +16,7 @@ console.log(userChords, 'USER CHORDS HERE!!!')
     canPlaySongs = [];
     if (songs) {
       songs.map((song) => {
-          console.log(chordsUserCanPlay, 'chords know array');
+        //   console.log(chordsUserCanPlay, 'chords know array');
         if (song['chords'].every((song) => {chordsUserCanPlay.includes(song)}))
           canPlaySongs.push(song);
       });
@@ -33,12 +33,12 @@ console.log(userChords, 'USER CHORDS HERE!!!')
     relevantSongs = [];
 
     missingChord = [];
-    console.log(song, 'SONG HERE !')
+    // console.log(song, 'SONG HERE !')
     song.chords.forEach((el) => {
         // console.log(el, 'CHORD OF SONG')
       if (!chordsUserCanPlay.includes(el)) {
-          console.log(el, 'MISSING CHORD')
-          console.log(missingChord, 'MISSING CHORD ARRAY')
+        //   console.log(el, 'MISSING CHORD')
+        //   console.log(missingChord, 'MISSING CHORD ARRAY')
         missingChord.push(el);
       }
     });
@@ -75,15 +75,19 @@ console.log(userChords, 'USER CHORDS HERE!!!')
   const oneFalse = relevantSongsFinder(songs, user, 1);
 //   console.log(oneFalse, 'ONE FALSE')
   const twoFalse = relevantSongsFinder(songs, user, 2);
-  console.log(twoFalse, 'TWO FALSE')
+//   console.log(twoFalse, 'TWO FALSE')
 
   return (
     <>
+    <div className="songs-page">
+
       <p></p>
+      <ul>
+
       <div className="songs-can-play-list">
         {canPlaySongs.length? 'With the chords you know, you can play these songs:':''}
         <ul>
-          <div>
+          <div className="songs-know">
             {canPlaySongs &&
               canPlaySongs.map((el) => {
                 return <SongList eachSong={el} />;
@@ -94,11 +98,12 @@ console.log(userChords, 'USER CHORDS HERE!!!')
           </div>
         </ul>
       </div>
+      <p></p>
 
       <div className="songs-one-false-list">
       {oneFalse.length? ('If you learn one more chord, you could play '+oneFalse.length +' more songs:'):''}
         <ul>
-          <div>
+          <div className="songs-know1 noscroll">
             {oneFalse &&
               oneFalse.map((el) => {
                 return <SongListOneFalse eachSong={el} user={user} />;
@@ -106,11 +111,11 @@ console.log(userChords, 'USER CHORDS HERE!!!')
           </div>
         </ul>
       </div>
-
+    <p></p>
       <div className="songs-two-false-list">
         ...with two more chords you could play {twoFalse.length} extra songs:
         <ul>
-          <div>
+          <div className="songs-know2">
             {twoFalse &&
               twoFalse.map((el) => {
                 return <SongListTwoFalse eachSong={el} user={user} />;
@@ -118,6 +123,8 @@ console.log(userChords, 'USER CHORDS HERE!!!')
           </div>
         </ul>
       </div>
+      </ul>
+    </div>
     </>
   );
 }
