@@ -11,8 +11,8 @@ export default function Header({ user }) {
       return 'beginner';
     }
     if (numberChords < 12) {
-        return 'amateur';
-      }
+      return 'amateur';
+    }
     if (numberChords < 16) {
       return 'ready for a jam';
     }
@@ -23,11 +23,11 @@ export default function Header({ user }) {
       return 'semi-pro';
     }
     if (numberChords < 28) {
-        return 'pro';
-      }
+      return 'pro';
+    }
     if (numberChords < 32) {
-        return 'rockstar';
-      } else return 'Guitar George';
+      return 'rockstar';
+    } else return 'Guitar George';
   };
   const skill = skillLevel(chordsKnown);
   return (
@@ -45,7 +45,6 @@ export default function Header({ user }) {
         <div className="head-center">CHORD</div>
         <div className="head-skill neon-red">Skill level: {skill}</div>
         {/* <div className='head-skill neon-red'>
-
                 </div> */}
       </div>
     </header>

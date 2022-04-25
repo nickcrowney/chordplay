@@ -52,7 +52,6 @@
   display: flex;
   background-color: #282c34d4;
   color: white;
-
 }
 
 .home-quote {
@@ -100,5 +99,42 @@
 }
 
 .noscroll::-webkit-scrollbar {
-  display: none;
+  /* display: none; */
+}
+
+.song-list-false-element {
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 10px;
+}
+
+.song-list-canplay-element {
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 10px;
+}
+.song-list-canplay-info {
+  position: absolute;
+  bottom: 20px;
+  color: white;
+}
+.song-list-info {
+  position: absolute;
+  bottom: 40px;
+  color: white;
+}
+
+.song-img {
+  height: auto;
+  width: auto;
+  max-width: 300px;
+  max-height: 300px;
+}
+.page {
+  padding: 20px;
+}
+.page-title {
+  font-size: x-large;
 }

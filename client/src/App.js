@@ -8,10 +8,8 @@ import Home from './Components/Home';
 import Songs from './Components/Songs';
 import Chords from './Components/Chords';
 // import {UserData} from './Extras/Data';
-import LineChart from './Extras/LineChart';
+// import LineChart from './Extras/LineChart';
 // import Data from './Extras/Data'
-
-
 
 function App() {
   const [songs, setSong] = useState(null);
@@ -21,14 +19,10 @@ function App() {
   const [totalChordsObjectDate, setTotalChordsObjectDate] = useState(null);
   // const [filteredChordsArray, setFilteredChordsArray]= useState({})
 
-
-
-
   function getData() {
     fetch('http://localhost:3100/songs')
       .then((res) => res.json())
       .then((res) => {
-
         setSong(res);
       });
     fetch('http://localhost:3100/users')
@@ -41,7 +35,7 @@ function App() {
     fetch('http://localhost:3100/users')
       .then((res) => res.json())
       .then((res) => {
-        const first = res[0].chordsKnow.map(el=>el.chord);
+        const first = res[0].chordsKnow.map((el) => el.chord);
 
         console.log(first, 'CHORDS KNOW APPJS');
         setUserChords(first);
@@ -57,7 +51,7 @@ function App() {
     getData();
     // console.log(user, 'user here', songs, 'songs here')
   }, []);
-  console.log(userChords,'USER CHORDS APP ')
+  console.log(userChords, 'USER CHORDS APP ');
 
   if (!user || !songs) return <h1>loading...</h1>;
 
@@ -90,7 +84,16 @@ function App() {
   );
 
   // console.log(sortedChordsObject, 'SORT CHORDS ARRAY')
-  console.log(userChords, 'userChords here', songs, 'songs here', userSongs, '< userSongs', sortedChordsObject, '< sortedChordsObject')
+  console.log(
+    userChords,
+    'userChords here',
+    songs,
+    'songs here',
+    userSongs,
+    '< userSongs',
+    sortedChordsObject,
+    '< sortedChordsObject'
+  );
 
   return (
     <Router>
@@ -127,9 +130,15 @@ function App() {
             ></Route>
             <Route
               path="/songs"
-              element={<Songs user={user} songs={songs} sortedChordsObject={sortedChordsObject}
+              element={
+                <Songs
+                  user={user}
+                  songs={songs}
+                  sortedChordsObject={sortedChordsObject}
                   userChords={userChords}
-                  userSongs={userSongs}/>}
+                  userSongs={userSongs}
+                />
+              }
             ></Route>
             <Route
               path="/chords"
@@ -159,7 +168,6 @@ function App() {
             )
         })} */}
           </p>
-
         </div>
       </>
     </Router>
