@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../Styles/Main.css';
 import Songs from './Songs';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 var dayjs = require('dayjs');
 
 export default function Main({
@@ -87,7 +88,7 @@ export default function Main({
   return (
     <div className="main">
       <div className="main-notification">
-        <form className="input-form">
+        {/* <form className="input-form">
           <label>Input chord learned:</label>
           <div>
             <input
@@ -102,11 +103,10 @@ export default function Main({
               //     });
               //   }}
             ></input>
-            {/* value={newChord} */}
             <button onClick={handleClick}>Enter</button>
-            {/* console.log(e)}}>Enter</button> */}
           </div>
-        </form>
+        </form> */}
+
         <div className="chordsknow-notification">
           You know {user.chordsKnow ? user.chordsKnow.length : 0} chords.
         </div>
@@ -115,7 +115,7 @@ export default function Main({
           songs.
         </div>
       </div>
-      <p></p>
+
       <div>
         Last chord you learned:{' '}
         {user.chordsKnow.length
@@ -124,12 +124,21 @@ export default function Main({
       </div>
       <div>
         {' '}
-        The most common chord in popular music is:{' '}
-        {Object.keys(sortedChordsObject)[0]}
+        The most common chord in the current most searched for music is{' '}
+        <nav>
+          <Link to="/chords" className="chord-name-link">
+            {Object.keys(sortedChordsObject)[0]}.
+          </Link>
+        </nav>
       </div>
       <div>
         {' '}
-        The next chords you should learn are: {filtChords[0]} or {filtChords[1]}
+        The next chords you should learn are:{' '}
+        <nav>
+          <Link to="/chords" className="chord-name-link">
+            {filtChords[0]} or {filtChords[1]}
+          </Link>
+        </nav>
       </div>
       <div>
         {' '}

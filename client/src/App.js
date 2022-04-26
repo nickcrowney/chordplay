@@ -16,7 +16,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   const [userChords, setUserChords] = useState(null);
-  const [userSongsMastered, setUserSongsMastered] = useState(null);
+  const [userSongsMastered, setUserSongsMastered] = useState([]);
   const [totalChordsObjectDate, setTotalChordsObjectDate] = useState(null);
   // const [filteredChordsArray, setFilteredChordsArray]= useState({})
   // const [newChord, setNewChord] = useState('');
@@ -39,7 +39,7 @@ function App() {
       .then((res) => {
         const first = res[0].chordsKnow.map((el) => el.chord);
 
-        console.log(first, 'CHORDS KNOW APPJS');
+        // console.log(first, 'CHORDS KNOW APPJS');
         setUserChords(first);
       });
     fetch('http://localhost:3100/users')
@@ -53,7 +53,7 @@ function App() {
     getData();
     // console.log(user, 'user here', songs, 'songs here')
   }, []);
-  console.log(userChords, 'USER CHORDS APP ');
+  // console.log(userChords, 'USER CHORDS APP ');
 
   if (!user || !songs) return <h1>loading...</h1>;
 
@@ -88,16 +88,16 @@ function App() {
   );
 
   // console.log(sortedChordsObject, 'SORT CHORDS ARRAY')
-  console.log(
-    userChords,
-    'userChords here',
-    songs,
-    'songs here',
-    userSongsMastered,
-    '< userSongs',
-    sortedChordsObject,
-    '< sortedChordsObject'
-  );
+  // console.log(
+  //   userChords,
+  //   'userChords here',
+  //   songs,
+  //   'songs here',
+  //   userSongsMastered,
+  //   '< userSongs',
+  //   sortedChordsObject,
+  //   '< sortedChordsObject'
+  // );
 
   return (
     <Router>
@@ -143,6 +143,7 @@ function App() {
                   sortedChordsObject={sortedChordsObject}
                   userChords={userChords}
                   userSongsMastered={userSongsMastered}
+                  setUserSongsMastered={setUserSongsMastered}
                 />
               }
             ></Route>

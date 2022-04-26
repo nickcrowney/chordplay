@@ -16,7 +16,7 @@ export default function Chords(props) {
   const toggleClass = () => {
     setDarkMode(!darkMode);
   };
-
+  console.log(props.sortedChordsObject, 'Sorted object CHORDS');
   if (!props.userChords) return <h1>loading...</h1>;
 
   const totalChords = Object.keys(props.sortedChordsObject);

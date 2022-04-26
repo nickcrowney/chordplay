@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   name: String,
   chordsKnow: [Object],
-  songsMastered: [String],
+  songsMastered: [Object],
 });
 
 const usersModel = mongoose.model('user', userSchema);

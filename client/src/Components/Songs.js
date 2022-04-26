@@ -3,6 +3,7 @@ import SongListOneFalse from './SongListOneFalse';
 import SongListTwoFalse from './SongListTwoFalse';
 import '../Styles/Songs.css';
 import SongsMastered from './SongsMastered';
+import { useState } from 'react';
 
 export default function Songs({
   user,
@@ -10,12 +11,16 @@ export default function Songs({
   sortedChordsObject,
   userChords,
   userSongsMastered,
+  setUserSongsMastered,
 }) {
+  const [songsNotMastered, setSongsNotMastered] = useState([]);
+
   if (!songs) return <h1>loading...</h1>;
   // console.log(songs.length, 'SONGS TOTAL')
   // console.log(userChords, 'USER CHORDS HERE!!!')
   //   let canPlaySongs = [];
   let chordsUserCanPlay = user.chordsKnow.map((el) => el.chord);
+  console.log(userSongsMastered, 'userSongsMastered');
 
   // //   const checkOnlyChords = (user) => {
   // //     canPlaySongs = [];
@@ -83,11 +88,17 @@ export default function Songs({
   // // //     );
 
   const noneFalse = relevantSongsFinder(songs, user, 0);
+  console.log(noneFalse, 'CAN PLAY SONGS');
+  const noneFalseAdjusted = noneFalse.map((el, i) =>
+    userSongsMastered.every((el) => el.title) === el.title
+      ? noneFalse.splice(i, 1)
+      : el
+  );
+  console.log(noneFalseAdjusted, 'ADJUSTED');
   const oneFalse = relevantSongsFinder(songs, user, 1);
   //   console.log(oneFalse, 'ONE FALSE')
   const twoFalse = relevantSongsFinder(songs, user, 2);
   //   console.log(twoFalse, 'TWO FALSE')
-  console.log(noneFalse, 'CAN PLAY SONGS');
   console.log(oneFalse, 'CAN PLAY SONGS ONE');
   console.log(twoFalse, 'CAN PLAY SONGS TWO');
 
@@ -122,15 +133,22 @@ export default function Songs({
         <div className="songs-page">
           <p></p>
           <ul>
-            <div className="songs-can-play-list">
+            <div className="songs-list">
               {noneFalse.length
                 ? 'With the chords you know, you can play these songs:'
                 : ''}
               <ul>
-                <div className="songs-know">
+                <div className="songs-know songs-scroll">
                   {noneFalse &&
                     noneFalse.map((el) => {
-                      return <SongList eachSong={el} />;
+                      return (
+                        <SongList
+                          user={user}
+                          eachSong={el}
+                          userSongsMastered={userSongsMastered}
+                          setUserSongsMastered={setUserSongsMastered}
+                        />
+                      );
                     })}
                   {noneFalse.length === 0
                     ? "You don't know enough chords to play any songs... yet. Learn some chords and be amazed with what you can do!"
@@ -140,7 +158,7 @@ export default function Songs({
             </div>
             <p></p>
 
-            <div className="songs-one-false-list">
+            <div className="songs-list songs-scroll">
               {oneFalse.length
                 ? 'If you learn one more chord, you could play ' +
                   oneFalse.length +
@@ -156,7 +174,7 @@ export default function Songs({
               </ul>
             </div>
             <p></p>
-            <div className="songs-two-false-list">
+            <div className="songs-list songs-scroll">
               ...with two more chords you could play {twoFalse.length} extra
               songs:
               <ul>
@@ -169,12 +187,13 @@ export default function Songs({
               </ul>
             </div>
             <p></p>
-            <div className="songs-mastered-list">
+            <div className="songs-list songs-scroll">
               You have learned these songs:
               <ul>
-                <div className="songs-know noscroll">
-                  {twoFalse &&
-                    twoFalse.map((el) => {
+                <div className="songs-know ">
+                  {/* noscroll */}
+                  {userSongsMastered &&
+                    userSongsMastered.map((el) => {
                       return <SongsMastered eachSong={el} user={user} />;
                     })}
                 </div>

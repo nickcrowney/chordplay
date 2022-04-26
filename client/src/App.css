@@ -76,7 +76,10 @@
   display: flex;
   flex-direction: column;
 }
-
+.chord-name-link {
+  text-decoration: none;
+  color: white;
+}
 .c-major {
   height: 10vh;
 }
@@ -84,7 +87,7 @@
 .chords-list {
   display: flex;
   flex-direction: column;
-  overflow-x: auto;
+  overflow-x: wrap;
 }
 .chords-dont-know-list {
   display: flex;
@@ -96,7 +99,7 @@
 }
 .song-list {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
 }
 .songs-know {
   display: flex;
@@ -112,15 +115,18 @@
   flex-direction: row;
 }
 
+.songs-scroll {
+  overflow-x: wrap;
+}
 .songs-page {
-  overflow-x: auto;
+  /* overflow-x: auto; */
 }
 
 .noscroll::-webkit-scrollbar {
   /* display: none; */
 }
 
-.song-list-false-element {
+.song-list-element {
   position: relative;
   text-align: center;
   color: white;
@@ -182,4 +188,9 @@
 }
 .chord-display-area {
   display: flex;
+}
+
+.tick {
+  height: 30px;
+  /* z-index: 10; */
 }

@@ -31,7 +31,7 @@ export default function SongListOneFalse({ eachSong, user }) {
 
   return (
     <>
-      <div key={eachSong._id} className="song-list-false-element">
+      <div key={eachSong._id} className="song-list-element">
         <a className="each-song" href={eachSong.url}>
           <div>
             <div className="song-list-info">
