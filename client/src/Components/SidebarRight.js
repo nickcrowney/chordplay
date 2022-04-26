@@ -4,7 +4,7 @@ import '../Styles/SidebarRight.css';
 function SidebarRight() {
   return (
     <>
-      <div className="sidebar-right-comp">SidebarRight</div>
+      <div className="sidebar-right-comp"></div>
     </>
   );
 }

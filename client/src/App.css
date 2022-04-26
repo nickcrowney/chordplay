@@ -78,8 +78,8 @@
 }
 
 .home-quote {
-  display: flex;
-  flex-direction: column;
+  margin-left: 2vw;
+  margin-bottom: 2vh;
 }
 .chord-name-link {
   text-decoration: none;

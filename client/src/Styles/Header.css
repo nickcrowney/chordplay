@@ -15,6 +15,7 @@
 .head-user {
   margin-left: 10px;
   justify-content: flex-start;
+  width: 25vw;
 }
 .head-mid-line {
   /* display: flex; */
@@ -31,6 +32,7 @@
   justify-content: flex-end;
   margin-right: 10px;
   align-items: center;
+  width: 25vw;
 }
 .neon {
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff,

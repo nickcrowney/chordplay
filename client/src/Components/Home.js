@@ -87,8 +87,8 @@ function Home(props) {
 
   return (
     <>
+      <div className="home-quote">{selectedhomeQuote}</div>
       <div className="home-order">
-        <div className="home-quote">{selectedhomeQuote}</div>
         <div>
           <Main
             user={props.user}
