@@ -1,3 +1,5 @@
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+
 export default function SongListOneFalse({ eachSong, user }) {
   let missedChord = '';
   eachSong.chords.forEach((el) => {
@@ -34,9 +36,9 @@ export default function SongListOneFalse({ eachSong, user }) {
       <div key={eachSong._id} className="song-list-element">
         <a className="each-song" href={eachSong.url}>
           <div>
-            <div className="song-list-info">
+            <p className="song-list-info">
               {eachSong.title} - {eachSong.artist}
-            </div>
+            </p>
             <img
               src={`/images/artists/${eachSong.artist}.jpeg`}
               alt="artist-image"
@@ -44,7 +46,12 @@ export default function SongListOneFalse({ eachSong, user }) {
             ></img>
           </div>
         </a>{' '}
-        you need the chord: {missedChord}
+        <nav>
+          you need the chord:
+          <Link to="/chords" className="chord-name-link">
+            {missedChord}
+          </Link>
+        </nav>
       </div>
     </>
   );

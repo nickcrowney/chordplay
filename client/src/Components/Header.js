@@ -1,5 +1,6 @@
 // import Header from '../App'
 import '../Styles/Header.css';
+import logo from './logo.jpg';
 
 export default function Header({ user }) {
   const chordsKnown = user.chordsKnow?.length;
@@ -34,7 +35,6 @@ export default function Header({ user }) {
     <header className="App-header">
       <div className="head-user neon">
         Welcome back,
-        <div></div>
         <div className="head-username neon-red delay">{user.name}!</div>
       </div>
 
@@ -42,11 +42,13 @@ export default function Header({ user }) {
       {/* <img src="https://see.fontimg.com/api/renderfont4/oworB/eyJyIjoiZnMiLCJoIjoyMjAsInciOjIwMDAsImZzIjoxMTAsImZnYyI6IiNGRkZGRkYiLCJiZ2MiOiIjMTIwMDAwIiwidCI6MX0/Q0hPUkQ/buree-chalk-regular.png" alt="Chalk fonts"> */}
       {/* </a> */}
       <div className="head-mid-line">
-        <div className="head-center">CHORD</div>
-        <div className="head-skill neon-red">Skill level: {skill}</div>
+        <div className="head-center">
+          <img className="logo" src={logo} alt="CHORD"></img>
+        </div>
         {/* <div className='head-skill neon-red'>
                 </div> */}
       </div>
+      <div className="head-skill neon-red">Skill level: {skill}</div>
     </header>
   );
 }

@@ -2,19 +2,30 @@
   display: flex;
   flex-direction: column;
 
+  align-items: center;
   background-color: #282c34;
   color: white;
-  width: 20vw;
+  width: 15vw;
   height: 80vh;
   font-size: large;
+  /* border: 10px solid pink; */
+}
+.sidebar-button {
+  margin-top: 5vh;
+  width: 15vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .btn {
   background-color: #282c34;
   color: white;
   cursor: pointer;
-  width: 20vw;
+  width: 10vw;
   height: 8vh;
   text-decoration: none;
+  display: flex;
+  justify-content: center;
 }
 
 .neon {

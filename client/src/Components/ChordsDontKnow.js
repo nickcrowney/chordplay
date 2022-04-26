@@ -69,8 +69,10 @@ function ChordsDontKnow({
     <>
       <ul>
         <nav>
-          <Link to="/" className="chord-btn btn neon">
-            <button onClick={handleClick}>{eachChord}</button>
+          <Link to="/">
+            <button className="chord-btn" onClick={handleClick}>
+              {eachChord}
+            </button>
           </Link>
         </nav>
       </ul>

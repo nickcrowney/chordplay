@@ -1,37 +1,36 @@
 .main {
   /* height: 100%;
   overflow: hidden; */
-
 }
 
 .btn {
-    background-color: #282c34;
-    color: white;
-    cursor: pointer;
+  background-color: #282c34;
+  color: white;
+  cursor: pointer;
 }
 .chordsknow-notification {
-    display: flex;
+  display: flex;
   justify-content: flex-start;
   align-items: flex-end;
   padding-bottom: 1vh;
-  }
+}
 
-  .songsmastered-notification {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding-bottom: 1vh;
-  }
+.songsmastered-notification {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-bottom: 1vh;
+}
 
-  .main-notification {
-    display: flex;
-    justify-content: center;
-  }
+.main-notification {
+  display: flex;
+  justify-content: center;
+}
 
-  .input-form {
-    margin: 5px
-  }
-  .input-box {
-    margin-top: 2px;
-    max-width: 15vw;
-  }
+.input-form {
+  margin: 5px;
+}
+.input-box {
+  margin-top: 2px;
+  max-width: 15vw;
+}

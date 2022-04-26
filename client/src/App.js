@@ -7,9 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Components/Home';
 import Songs from './Components/Songs';
 import Chords from './Components/Chords';
-// import {UserData} from './Extras/Data';
-// import LineChart from './Extras/LineChart';
-// import Data from './Extras/Data'
+import SidebarRight from './Components/SidebarRight';
 
 function App() {
   const [songs, setSong] = useState(null);
@@ -102,82 +100,62 @@ function App() {
   return (
     <Router>
       <>
-        {/* <div>
-        <div class="lds-ripple"><div></div><div></div></div>
-      </div> */}
-        {/* <div>
-          <Data user={user}/>
-        </div> */}
-
-        <div>
+        <div className="header">
           <Header user={user} />
         </div>
-        <div></div>
         <div className="mainpage">
-          <Sidebar user={user} songs={songs} />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Home
-                  user={user}
-                  setUser={setUser}
-                  songs={songs}
-                  sortedChordsObject={sortedChordsObject}
-                  userChords={userChords}
-                  userSongsMastered={userSongsMastered}
-                  // filteredChordsArray= {filteredChordsArray}
-                  // setFilteredChordsArray={setFilteredChordsArray}
-                  // userData={userData}
-                  // newChord={newChord}
-                  // setNewChord={setNewChord}
-                />
-              }
-            ></Route>
-            <Route
-              path="/songs"
-              element={
-                <Songs
-                  user={user}
-                  songs={songs}
-                  sortedChordsObject={sortedChordsObject}
-                  userChords={userChords}
-                  userSongsMastered={userSongsMastered}
-                  setUserSongsMastered={setUserSongsMastered}
-                />
-              }
-            ></Route>
-            <Route
-              path="/chords"
-              element={
-                <Chords
-                  user={user}
-                  setUser={setUser}
-                  songs={songs}
-                  sortedChordsObject={sortedChordsObject}
-                  userChords={userChords}
-                  setUserChords={setUserChords}
-                  userSongsMastered={userSongsMastered}
-                  totalChordsObjectDate={totalChordsObjectDate}
-                  setTotalChordsObjectDate={setTotalChordsObjectDate}
-                  // newChord={newChord}
-                  // setNewChord={setNewChord}
-                />
-              }
-            ></Route>
-          </Routes>
-        </div>
-        <div className="App">
-          {/* onClick={} */}
-          <p>
-            {/* {songs.map((song, i)=>{
-          return (
-            <>
-              {song[i].title}
-            </>
-            )
-        })} */}
-          </p>
+          <div>
+            <Sidebar user={user} songs={songs} />
+          </div>
+          <div className="app-pages">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Home
+                    user={user}
+                    setUser={setUser}
+                    songs={songs}
+                    sortedChordsObject={sortedChordsObject}
+                    userChords={userChords}
+                    userSongsMastered={userSongsMastered}
+                  />
+                }
+              ></Route>
+              <Route
+                path="/songs"
+                element={
+                  <Songs
+                    user={user}
+                    songs={songs}
+                    sortedChordsObject={sortedChordsObject}
+                    userChords={userChords}
+                    userSongsMastered={userSongsMastered}
+                    setUserSongsMastered={setUserSongsMastered}
+                  />
+                }
+              ></Route>
+              <Route
+                path="/chords"
+                element={
+                  <Chords
+                    user={user}
+                    setUser={setUser}
+                    songs={songs}
+                    sortedChordsObject={sortedChordsObject}
+                    userChords={userChords}
+                    setUserChords={setUserChords}
+                    userSongsMastered={userSongsMastered}
+                    totalChordsObjectDate={totalChordsObjectDate}
+                    setTotalChordsObjectDate={setTotalChordsObjectDate}
+                  />
+                }
+              ></Route>
+            </Routes>
+          </div>
+          <div className="sidebar-right">
+            <SidebarRight />
+          </div>
         </div>
       </>
     </Router>

@@ -42,9 +42,9 @@ export default function SongList({
         <a className="each-song" href={eachSong.url}>
           <div>
             <div>
-              <div className="song-list-canplay-info">
+              <p className="song-list-canplay-info">
                 {eachSong.title} - {eachSong.artist}
-              </div>
+              </p>
             </div>
             <img
               src={`/images/artists/${eachSong.artist}.jpeg`}

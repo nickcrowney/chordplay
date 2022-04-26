@@ -12,27 +12,27 @@ function Sidebar({ user, songs }) {
   return (
     <>
       <div className="Sidebar">
-        <ul>
+        <div className="sidebar-button">
           <nav>
             <Link to="/" className="home-btn btn neon-red">
               Home
             </Link>
           </nav>
-        </ul>
-        <ul>
+        </div>
+        <div className="sidebar-button">
           <nav>
             <Link to="/songs" className="songs-btn btn delay2 neon-red">
               Songs
             </Link>
           </nav>
-        </ul>
-        <ul>
+        </div>
+        <div className="sidebar-button">
           <nav>
             <Link to="/chords" className="chords-btn btn delay3 neon-red">
               Chords
             </Link>
           </nav>
-        </ul>
+        </div>
       </div>
     </>
   );

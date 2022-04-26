@@ -4,7 +4,7 @@ import { Chart as ChartJS } from 'chart.js/auto';
 
 function BarChart({ chartData }) {
   return (
-    <div>
+    <div className="bar-chart">
       Your Progress:
       <Bar
         data={chartData}

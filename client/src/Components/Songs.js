@@ -108,32 +108,37 @@ export default function Songs({
   return (
     <>
       <div className="page">
-        <div className="page-title">Songs</div>
-        <p></p>
-        <div>
-          <form className="filter-songs-input">
-            <label>Filter by artist:</label>
-            <div>
-              <input
-                className="input-box"
-                type="text"
-                required
-                placeholder="Search by artist..."
-                //   onChange={(e) => {
-                //     setNewChord({
-                //       chord: e.target.value,
-                //       dateLearned: currentDate,
-                //     });
-                //   }}
-              ></input>
-              <button onClick={handleClick}>Enter</button>
-            </div>
-          </form>
-        </div>
-        <div className="songs-page">
+        <div className="songs-a-b">
+          <div className="songs-a neon">Songs</div>
+
           <p></p>
-          <ul>
-            <div className="songs-list">
+          <div className="songs-b">
+            <form className="filter-songs-input">
+              <label>Filter by artist:</label>
+              <div>
+                <input
+                  className="input-box"
+                  type="text"
+                  required
+                  placeholder="Search by artist..."
+                  //   onChange={(e) => {
+                  //     setNewChord({
+                  //       chord: e.target.value,
+                  //       dateLearned: currentDate,
+                  //     });
+                  //   }}
+                ></input>
+                <button onClick={handleClick}>Enter</button>
+              </div>
+            </form>
+          </div>
+          <div className="songs-page"></div>
+        </div>
+        <div>
+          <p></p>
+          <div className="songs-c-d-e">
+            <div className="songs-c">
+              {/* <div className="songs-list"> */}
               {noneFalse.length
                 ? 'With the chords you know, you can play these songs:'
                 : ''}
@@ -155,7 +160,13 @@ export default function Songs({
                     : ''}
                 </div>
               </ul>
+              {/* </div> */}
             </div>
+
+            <div className="songs-d"></div>
+            <div className="songs-e"></div>
+          </div>
+          <ul>
             <p></p>
 
             <div className="songs-list songs-scroll">

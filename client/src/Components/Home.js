@@ -43,7 +43,7 @@ function Home(props) {
       {
         label: 'Chords Learned',
         data: timeArray.map((data) => data.count),
-        backgroundColor: ['white'],
+        backgroundColor: ['red'],
         borderColor: 'black',
         borderWidth: 1,
       },

@@ -1,0 +1,101 @@
+.chord-title-rest {
+  display: flex;
+  flex-direction: column;
+}
+
+.chord-section-a-b-c-d-e {
+  display: flex;
+  flex-direction: column;
+}
+.chord-section-a-b-c {
+  display: flex;
+  flex-direction: row;
+}
+.chord-section-d-e {
+  display: flex;
+  flex-direction: column;
+}
+
+.chord-section-a {
+  display: flex;
+  flex-direction: column;
+  margin: 5vh;
+}
+.chord-section-b {
+  display: flex;
+  flex-direction: column;
+  /* border: 10px solid pink; */
+}
+.chord-list-d-e {
+  margin-bottom: 20px;
+  display: flex;
+  /* overflow-x: scroll; */
+  overflow: scroll;
+  /* border: 10px solid pink; */
+  width: 50vw;
+  /* background-color: rgba(255, 0, 0, 0.233);
+  box-shadow: 5px 5px rgba(255, 0, 0, 0.233); */
+}
+.chord-list-d-e::-webkit-scrollbar {
+  display: none;
+}
+
+.chord-title {
+  display: flex;
+  font-size: 5vh;
+  justify-content: center;
+}
+
+.chord-name {
+  display: flex;
+  justify-content: center;
+  font-size: x-large;
+  margin: 20px;
+}
+
+.chords-list {
+  display: flex;
+  flex-direction: column;
+  overflow-x: wrap;
+}
+
+.button-chord-learned {
+}
+.button-chord-unlearned {
+}
+.chord-display-area {
+  display: flex;
+  flex-direction: column;
+}
+.dark-button {
+  position: absolute;
+  margin-right: 5px;
+  margin: 3px;
+}
+.button-chord-learned {
+  background-color: #282c34d4;
+  color: white;
+  height: 5vh;
+  width: 10vw;
+  font-size: medium;
+  outline-style: auto;
+  outline-color: black;
+  border: 0;
+  margin-top: 5px;
+}
+
+.button-chord-learned-area {
+  display: flex;
+  justify-content: center;
+}
+.chord-btn {
+  background-color: #282c34d4;
+  color: white;
+  height: 5vh;
+  width: 6vw;
+  font-size: larger;
+  border: 0;
+  outline-style: auto;
+  outline-color: white;
+  margin-top: 10px;
+}

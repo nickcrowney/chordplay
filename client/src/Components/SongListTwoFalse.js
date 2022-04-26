@@ -1,4 +1,4 @@
-import MetallicaImage from '../ChordImages/Metallica_at_The_O2_Arena_London_2008.jpg';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 
 export default function SongListTwoFalse({ eachSong, user }) {
   let missedChord = [];
@@ -27,7 +27,12 @@ export default function SongListTwoFalse({ eachSong, user }) {
             ></img>
           </div>
         </a>{' '}
-        you need the chords: {twoMissedChords}
+        you need the chords:{' '}
+        <nav>
+          <Link to="/chords" className="chord-name-link">
+            {twoMissedChords}
+          </Link>
+        </nav>
       </div>
     </>
   );
