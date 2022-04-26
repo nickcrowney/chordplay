@@ -2,6 +2,7 @@ import SongList from './SongList';
 import SongListOneFalse from './SongListOneFalse';
 import SongListTwoFalse from './SongListTwoFalse';
 import '../Styles/Songs.css';
+import SongsMastered from './SongsMastered';
 
 export default function Songs({
   user,
@@ -87,6 +88,8 @@ export default function Songs({
   const twoFalse = relevantSongsFinder(songs, user, 2);
   //   console.log(twoFalse, 'TWO FALSE')
   console.log(noneFalse, 'CAN PLAY SONGS');
+  console.log(oneFalse, 'CAN PLAY SONGS ONE');
+  console.log(twoFalse, 'CAN PLAY SONGS TWO');
 
   const handleClick = (e) => {
     console.log(e.target.value);
@@ -112,9 +115,7 @@ export default function Songs({
                 //     });
                 //   }}
               ></input>
-              {/* value={newChord} */}
               <button onClick={handleClick}>Enter</button>
-              {/* console.log(e)}}>Enter</button> */}
             </div>
           </form>
         </div>
@@ -163,6 +164,18 @@ export default function Songs({
                   {twoFalse &&
                     twoFalse.map((el) => {
                       return <SongListTwoFalse eachSong={el} user={user} />;
+                    })}
+                </div>
+              </ul>
+            </div>
+            <p></p>
+            <div className="songs-mastered-list">
+              You have learned these songs:
+              <ul>
+                <div className="songs-know noscroll">
+                  {twoFalse &&
+                    twoFalse.map((el) => {
+                      return <SongsMastered eachSong={el} user={user} />;
                     })}
                 </div>
               </ul>

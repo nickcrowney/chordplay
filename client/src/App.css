@@ -1,3 +1,7 @@
+.body {
+  background-color: grey;
+}
+
 .App {
   text-align: center;
   margin: 0;
@@ -138,6 +142,7 @@
   position: absolute;
   bottom: 40px;
   color: white;
+  text-shadow: 2px 2px 2px 2px black;
 }
 
 .song-img {
@@ -154,13 +159,27 @@
 }
 .chord-images {
   width: 300px;
-  /* filter: invert(1); */
+  border-width: 10px;
+  border-color: red;
+
   background-color: white;
   /* padding: 20px; */
   color: black;
+}
+.dark {
+  filter: invert(90%);
 }
 
 .button-chord-learned {
 }
 .button-chord-unlearned {
+}
+
+.dark-button {
+  background-color: #282c34d4;
+  color: white;
+  border-radius: 30px;
+}
+.chord-display-area {
+  display: flex;
 }

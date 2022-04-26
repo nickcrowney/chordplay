@@ -12,7 +12,7 @@ function ChordsKnow({
 }) {
   const handleClick = (e) => {
     e.preventDefault();
-    setCurrentChord(e.target.innerText.replace(/([/])/i, '-'));
+    setCurrentChord(e.target.innerText);
   };
   return (
     <>

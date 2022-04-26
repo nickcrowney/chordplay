@@ -17,7 +17,7 @@ function ChordsDontKnow({
     e.preventDefault();
     // const regex = /([:])/i;
     // console.log(p.replace(regex, 'ferret'));
-    setCurrentChord(e.target.innerText.replace(/([/])/i, '-'));
+    setCurrentChord(e.target.innerText);
   };
 
   //   const handleClickLearned = (e) => {

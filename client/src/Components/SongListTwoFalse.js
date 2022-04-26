@@ -21,7 +21,7 @@ export default function SongListTwoFalse({ eachSong, user }) {
               {eachSong.title} - {eachSong.artist}
             </div>
             <img
-              src={MetallicaImage}
+              src={`/images/artists/${eachSong.artist}.jpeg`}
               alt="artist-image"
               className="song-img"
             ></img>

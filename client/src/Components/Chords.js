@@ -9,9 +9,14 @@ var dayjs = require('dayjs');
 const currentDate = dayjs().format('YYYY-MM-DD');
 
 export default function Chords(props) {
-  const [newChord, setNewChord] = useState([]);
+  const [newChord, setNewChord] = useState(['hi']);
   const [currentChord, setCurrentChord] = useState('A');
   const [buttonStyle, setButtonStyle] = useState('');
+  const [darkMode, setDarkMode] = useState(false);
+  const toggleClass = () => {
+    setDarkMode(!darkMode);
+  };
+
   if (!props.userChords) return <h1>loading...</h1>;
 
   const totalChords = Object.keys(props.sortedChordsObject);
@@ -21,24 +26,34 @@ export default function Chords(props) {
   });
   console.log(currentChord, 'chords dont know HERE');
 
-  const currentChordSource = `/images/${currentChord}.svg`;
-
   //===========================
 
   const handleClickLearned = (e) => {
     e.preventDefault();
-    // console.log(e.target.innerText, 'BUTTON CLICKED');
+    console.log(e.target.innerText, 'BUTTON CLICKED');
     // console.log(newChord, 'Chord User before');
 
     setNewChord({
-      chord: e.target.innerText,
+      chord: currentChord,
       dateLearned: currentDate,
     });
+
     let patchChordsKnow = [];
     if (props.user.chordsKnow) {
-      patchChordsKnow = [...props.user.chordsKnow, newChord];
+      patchChordsKnow = [
+        ...props.user.chordsKnow,
+        {
+          chord: currentChord,
+          dateLearned: currentDate,
+        },
+      ];
     } else {
-      patchChordsKnow = [newChord];
+      patchChordsKnow = [
+        {
+          chord: currentChord,
+          dateLearned: currentDate,
+        },
+      ];
     }
 
     // const chordsUser = { newChord };
@@ -76,7 +91,7 @@ export default function Chords(props) {
     console.log(newChord, 'Chord User before');
 
     setNewChord({
-      chord: e.target.innerText,
+      chord: currentChord,
       dateLearned: currentDate,
     });
     const patchChordsKnow = props.user.chordsKnow;
@@ -132,10 +147,6 @@ export default function Chords(props) {
             sortedChordsObject={props.sortedChordsObject}
           />
         </div>
-        {/* <img
-        className="c-major"
-        src="https://tombatossals.github.io/react-chords/media/guitar/chords/C/major/1.svg"
-      ></img> */}
         <ul>
           <div className="chords-dont-know-area">
             <div>Chords you don't know:</div>
@@ -178,36 +189,43 @@ export default function Chords(props) {
             </div>
           </div>
         </ul>
-        <div className="display-chord neon">
-          <div>{currentChord} Chord</div>
-          <img
-            src={currentChordSource.replace(
-              /((?<=ChordImages\/).*$)/g.replace(/([/])/i, '-')
-            )}
-            alt="no chord shape, check online!"
-            width="300px"
-            className="chord-images"
-          ></img>
-          {!props.userChords.includes(currentChord) ? (
-            <button
-              onClick={handleClickLearned}
-              className="neon button-chord-learned"
-            >
-              I know this chord!
+        <div className="chord-display-area">
+          <div className="display-chord neon">
+            <div>{currentChord} Chord</div>
+          </div>
+          <div className={darkMode ? 'dark' : null}>
+            <button className="dark-button" onClick={toggleClass}>
+              ☾
             </button>
-          ) : (
-            <button
-              onClick={handleClickUnLearned}
-              className="neon button-chord-unlearned"
-            >
-              I don't know this chord
-            </button>
-          )}
-          {/* <object data={`/images/${el}.svg`} width="300px" />; */}
-
-          {/* <A /> */}
-          {/* <img src={AChord} alt="chord-image" className="chord-image"></img> */}
+            <img
+              src={`/images/${currentChord
+                .replace(/(\/)(?!.*\1)/g, '-')
+                .replace(/#/g, '_sh')}.svg`}
+              alt="no chord shape, check online!"
+              width="300px"
+              className="chord-images"
+            ></img>
+          </div>
         </div>
+        {!props.userChords.includes(currentChord) ? (
+          <button
+            onClick={handleClickLearned}
+            className="neon button-chord-learned"
+          >
+            I know this chord!
+          </button>
+        ) : (
+          <button
+            onClick={handleClickUnLearned}
+            className="neon button-chord-unlearned"
+          >
+            I don't know this chord
+          </button>
+        )}
+        {/* <object data={`/images/${el}.svg`} width="300px" />; */}
+
+        {/* <A /> */}
+        {/* <img src={AChord} alt="chord-image" className="chord-image"></img> */}
       </div>
     </>
   );

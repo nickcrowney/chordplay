@@ -60,7 +60,12 @@
 // //   console.log(relevant, 'res');
 // // };
 // // // check()
-const path = '/images/C/E.svg';
+const path = '/images/D#/F#.svg';
+const path3 = '/images/A.svg';
 const path1 = path.replace('/images/', '');
 const path2 = path1;
-console.log(path.replace(/a([sS]*)$/, ' '));
+const regexed = path.replace(/(\/)(?!.*\1)/g, '-').replace(/\#/g, '_sharp');
+console.log(regexed);
+
+const regexed3 = path3.replace(/(\/)(?!.*\1)/g, '-').replace(/\#/g, '_sharp');
+console.log(regexed3);

@@ -1,5 +1,3 @@
-import MetallicaImage from '../ChordImages/Metallica_at_The_O2_Arena_London_2008.jpg';
-
 export default function SongListOneFalse({ eachSong, user }) {
   let missedChord = '';
   eachSong.chords.forEach((el) => {
@@ -40,7 +38,7 @@ export default function SongListOneFalse({ eachSong, user }) {
               {eachSong.title} - {eachSong.artist}
             </div>
             <img
-              src={MetallicaImage}
+              src={`/images/artists/${eachSong.artist}.jpeg`}
               alt="artist-image"
               className="song-img"
             ></img>
