@@ -2,3 +2,28 @@
   text-decoration: none;
   color: black;
 }
+
+.songs-a-b {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.songs-b {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: right; */
+  margin-top: 3vh;
+  margin-right: 1vw;
+}
+.songs-a {
+  margin-top: 3vh;
+  display: flex;
+  font-size: 5vh;
+  justify-content: left;
+  margin-left: 8vw;
+}
+.songs-c {
+  margin-top: 4vh;
+  /* margin-left: 2vw; */
+}

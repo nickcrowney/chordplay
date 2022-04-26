@@ -191,8 +191,10 @@ export default function Chords(props) {
             </div>
           </div>
           <div>
-            <ul className="chord-section-d-e">
-              <div>Chords you don't know (scroll for more)</div>
+            <div className="chord-section-d-e">
+              <div className="text-above-scroll">
+                Chords you don't know (scroll for more)
+              </div>
 
               <div className="chords-section-d chord-list-d-e">
                 {unKnownChords?.map((el) => {
@@ -210,7 +212,7 @@ export default function Chords(props) {
                 })}
               </div>
               <p></p>
-              <div>Chords you know</div>
+              <div className="text-above-scroll">Chords you know</div>
 
               <div className="chords-section-e chord-list-d-e">
                 {props.userChords &&
@@ -230,7 +232,7 @@ export default function Chords(props) {
                     );
                   })}
               </div>
-            </ul>
+            </div>
             {/* <object data={`/images/${el}.svg`} width="300px" />; */}
 
             {/* <A /> */}

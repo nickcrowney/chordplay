@@ -3,6 +3,8 @@ import Main from './Main';
 // import {UserData} from '../Extras/Data';
 // import { useState } from 'react';
 import LineChart from '../Extras/LineChart';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+
 import BarChart from '../Extras/BarChart';
 
 function Home(props) {
@@ -106,6 +108,14 @@ function Home(props) {
         <div style={{ width: 700 }}>
           <BarChart chartData={userData} />
         </div>
+      </div>
+      <div className="home-bottom-info">
+        <nav>
+          The most common chord in the current most searched for music is{' '}
+          <Link to="/chords" className="chord-name-link">
+            {Object.keys(props.sortedChordsObject)[0]}.
+          </Link>
+        </nav>
       </div>
     </>
   );

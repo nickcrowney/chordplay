@@ -8,6 +8,8 @@
   width: 15vw;
   height: 80vh;
   font-size: large;
+  position: static;
+  /* box-shadow: 12px 0px 21px 5px #282c34; */
   /* border: 10px solid pink; */
 }
 .sidebar-button {

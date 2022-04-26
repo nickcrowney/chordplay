@@ -10,6 +10,7 @@
 .chord-section-a-b-c {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 }
 .chord-section-d-e {
   display: flex;
@@ -20,19 +21,21 @@
   display: flex;
   flex-direction: column;
   margin: 5vh;
+  margin-top: 10vh;
 }
 .chord-section-b {
   display: flex;
   flex-direction: column;
+  margin-right: 5vw;
   /* border: 10px solid pink; */
 }
 .chord-list-d-e {
-  margin-bottom: 20px;
+  /* margin-bottom: 5vh; */
   display: flex;
   /* overflow-x: scroll; */
   overflow: scroll;
   /* border: 10px solid pink; */
-  width: 50vw;
+  width: 65vw;
   /* background-color: rgba(255, 0, 0, 0.233);
   box-shadow: 5px 5px rgba(255, 0, 0, 0.233); */
 }
@@ -41,16 +44,18 @@
 }
 
 .chord-title {
+  margin-top: 3vh;
   display: flex;
   font-size: 5vh;
-  justify-content: center;
+  justify-content: left;
+  margin-left: 8vw;
 }
 
 .chord-name {
   display: flex;
   justify-content: center;
   font-size: x-large;
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 .chords-list {
@@ -98,4 +103,26 @@
   outline-style: auto;
   outline-color: white;
   margin-top: 10px;
+}
+/* .app-pages {
+  border-top: white;
+  border-width: 4px;
+  border-style: solid;
+} */
+
+.main {
+  font-size: large;
+}
+
+.main-info {
+}
+.main-chords {
+  margin: 2vh;
+}
+
+.text-above-scroll {
+  margin-left: 4vw;
+}
+.chords-section-d {
+  margin-bottom: 2vh;
 }

@@ -107,22 +107,22 @@ export default function Main({
           </div>
         </form> */}
 
-        <div className="chordsknow-notification">
+        {/* <div className="chordsknow-notification">
           You know {user.chordsKnow ? user.chordsKnow.length : 0} chords.
         </div>
         <div className="songsmastered-notification">
           You have mastered {user.songsMastered ? user.songsMastered.length : 0}{' '}
           songs.
-        </div>
+        </div> */}
       </div>
 
-      <div>
+      {/* <div>
         Last chord you learned:{' '}
         {user.chordsKnow.length
           ? user.chordsKnow[user.chordsKnow.length - 1].chord
           : "None... Let's get started!"}
-      </div>
-      <div>
+      </div> */}
+      {/* <div>
         {' '}
         The most common chord in the current most searched for music is{' '}
         <nav>
@@ -130,24 +130,24 @@ export default function Main({
             {Object.keys(sortedChordsObject)[0]}.
           </Link>
         </nav>
-      </div>
+      </div> */}
       <div>
         {' '}
         The next chords you should learn are:{' '}
-        <nav>
-          <Link to="/chords" className="chord-name-link">
-            {filtChords[0]} or {filtChords[1]}
-          </Link>
-        </nav>
+        <div className="main-chords">
+          <nav>
+            <Link to="/chords" className="chord-name-link">
+              {filtChords[0]} or {filtChords[1]}
+            </Link>
+          </nav>
+        </div>
       </div>
-      <div>
-        {' '}
-        The {filtChords[0]} chord is used in {chordFrequency(filtChords[0])}% of
+      <div className="main-info">
+        {filtChords[0]} chord used in {chordFrequency(filtChords[0])}% of
         popular songs.
       </div>
-      <div>
-        {' '}
-        The {filtChords[1]} chord is used in {chordFrequency(filtChords[1])}% of
+      <div className="main-info">
+        {filtChords[1]} chord used in {chordFrequency(filtChords[1])}% of
         popular songs.
       </div>
     </div>

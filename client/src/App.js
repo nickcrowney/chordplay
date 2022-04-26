@@ -154,7 +154,14 @@ function App() {
             </Routes>
           </div>
           <div className="sidebar-right">
-            <SidebarRight />
+            <SidebarRight
+              user={user}
+              setUser={setUser}
+              songs={songs}
+              sortedChordsObject={sortedChordsObject}
+              userChords={userChords}
+              userSongsMastered={userSongsMastered}
+            />
           </div>
         </div>
       </>

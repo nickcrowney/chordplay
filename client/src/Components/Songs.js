@@ -111,7 +111,6 @@ export default function Songs({
         <div className="songs-a-b">
           <div className="songs-a neon">Songs</div>
 
-          <p></p>
           <div className="songs-b">
             <form className="filter-songs-input">
               <label>Filter by artist:</label>
@@ -132,7 +131,7 @@ export default function Songs({
               </div>
             </form>
           </div>
-          <div className="songs-page"></div>
+          {/* <div className="songs-page"></div> */}
         </div>
         <div>
           <p></p>
