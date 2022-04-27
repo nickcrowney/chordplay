@@ -165,51 +165,50 @@ export default function Songs({
             <div className="songs-d"></div>
             <div className="songs-e"></div>
           </div>
-          <ul>
-            <p></p>
 
-            <div className="songs-list songs-scroll">
-              {oneFalse.length
-                ? 'If you learn one more chord, you could play ' +
-                  oneFalse.length +
-                  ' more songs:'
-                : ''}
-              <ul>
-                <div className="songs-know noscroll">
-                  {oneFalse &&
-                    oneFalse.map((el) => {
-                      return <SongListOneFalse eachSong={el} user={user} />;
-                    })}
-                </div>
-              </ul>
-            </div>
-            <p></p>
-            <div className="songs-list songs-scroll">
-              ...with two more chords you could play {twoFalse.length} extra
-              songs:
-              <ul>
-                <div className="songs-know noscroll">
-                  {twoFalse &&
-                    twoFalse.map((el) => {
-                      return <SongListTwoFalse eachSong={el} user={user} />;
-                    })}
-                </div>
-              </ul>
-            </div>
-            <p></p>
-            <div className="songs-list songs-scroll">
-              You have learned these songs:
-              <ul>
-                <div className="songs-know ">
-                  {/* noscroll */}
-                  {userSongsMastered &&
-                    userSongsMastered.map((el) => {
-                      return <SongsMastered eachSong={el} user={user} />;
-                    })}
-                </div>
-              </ul>
-            </div>
-          </ul>
+          <p></p>
+
+          <div className="songs-list songs-scroll">
+            {oneFalse.length
+              ? 'If you learn one more chord, you could play ' +
+                oneFalse.length +
+                ' more songs:'
+              : ''}
+            <ul>
+              <div className="songs-know noscroll">
+                {oneFalse &&
+                  oneFalse.map((el) => {
+                    return <SongListOneFalse eachSong={el} user={user} />;
+                  })}
+              </div>
+            </ul>
+          </div>
+          <p></p>
+          <div className="songs-list songs-scroll">
+            ...with two more chords you could play {twoFalse.length} extra
+            songs:
+            <ul>
+              <div className="songs-know noscroll">
+                {twoFalse &&
+                  twoFalse.map((el) => {
+                    return <SongListTwoFalse eachSong={el} user={user} />;
+                  })}
+              </div>
+            </ul>
+          </div>
+          <p></p>
+          <div className="songs-list songs-scroll">
+            You have learned these songs:
+            <ul>
+              <div className="songs-know ">
+                {/* noscroll */}
+                {userSongsMastered &&
+                  userSongsMastered.map((el) => {
+                    return <SongsMastered eachSong={el} user={user} />;
+                  })}
+              </div>
+            </ul>
+          </div>
         </div>
       </div>
     </>

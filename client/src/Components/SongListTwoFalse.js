@@ -17,9 +17,9 @@ export default function SongListTwoFalse({ eachSong, user }) {
       <div key={eachSong._id} className="song-list-element">
         <a className="each-song" href={eachSong.url}>
           <div>
-            <div className="song-list-info">
+            <p className="song-name">
               {eachSong.title} - {eachSong.artist}
-            </div>
+            </p>
             <img
               src={`/images/artists/${eachSong.artist}.jpeg`}
               alt="artist-image"
@@ -27,12 +27,14 @@ export default function SongListTwoFalse({ eachSong, user }) {
             ></img>
           </div>
         </a>{' '}
-        you need the chords:{' '}
-        <nav>
-          <Link to="/chords" className="chord-name-link">
-            {twoMissedChords}
-          </Link>
-        </nav>
+        <div className="songs-chords-need">
+          need chords:{' '}
+          <nav>
+            <Link to="/chords" className="chord-name-link">
+              {twoMissedChords}
+            </Link>
+          </nav>
+        </div>
       </div>
     </>
   );

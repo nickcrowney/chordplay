@@ -36,7 +36,7 @@ export default function SongListOneFalse({ eachSong, user }) {
       <div key={eachSong._id} className="song-list-element">
         <a className="each-song" href={eachSong.url}>
           <div>
-            <p className="song-list-info">
+            <p className="song-name">
               {eachSong.title} - {eachSong.artist}
             </p>
             <img
@@ -46,12 +46,14 @@ export default function SongListOneFalse({ eachSong, user }) {
             ></img>
           </div>
         </a>{' '}
-        <nav>
-          you need the chord:
-          <Link to="/chords" className="chord-name-link">
-            {missedChord}
-          </Link>
-        </nav>
+        <div className="songs-chords-need">
+          <nav>
+            need the chord:{' '}
+            <Link to="/chords" className="chord-name-link">
+              {missedChord}
+            </Link>
+          </nav>
+        </div>
       </div>
     </>
   );

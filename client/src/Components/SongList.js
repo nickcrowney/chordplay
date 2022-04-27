@@ -42,7 +42,7 @@ export default function SongList({
         <a className="each-song" href={eachSong.url}>
           <div>
             <div>
-              <p className="song-list-canplay-info">
+              <p className="song-list-canplay-info song-name">
                 {eachSong.title} - {eachSong.artist}
               </p>
             </div>
@@ -54,12 +54,14 @@ export default function SongList({
           </div>
         </a>
         <div>
-          <p>
-            <a className="btn" onClick={handleClick}>
+          <div className="song-learned-tick">
+            <div className="song-learned-tick-text">
               I've learned this song{'  '}
+            </div>
+            <a className="tick-btn" onClick={handleClick}>
               <img className="tick" src={'/images/tick.svg'}></img>
             </a>
-          </p>
+          </div>
         </div>
       </div>
     </>
