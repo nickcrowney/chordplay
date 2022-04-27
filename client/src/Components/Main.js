@@ -14,20 +14,20 @@ export default function Main({
   newChord,
   setNewChord,
 }) {
-  const [filteredChordsArray, setFilteredChordsArray] = useState({}); //NOT BEING USED?
+  //   const [filteredChordsArray, setFilteredChordsArray] = useState({}); //NOT BEING USED?
 
   const sortedChordsArray = Object.keys(sortedChordsObject);
   const currentDate = dayjs().format('YYYY-MM-DD');
-  console.log(currentDate);
+  //   console.log(currentDate);
 
-  console.log(filteredChordsArray, 'filtered chords Array HERE');
-  console.log(sortedChordsArray, 'SORTED CHORDS ARRAY');
-  console.log(user.chordsKnow, 'CHORDS KNOW USER');
+  //   console.log(filteredChordsArray, 'filtered chords Array HERE');
+  //   console.log(sortedChordsArray, 'SORTED CHORDS ARRAY');
+  //   console.log(user.chordsKnow, 'CHORDS KNOW USER');
   // THIS NEEDS TO BE REFACTORED - USE STATE INSTEAD
   const filtChords = sortedChordsArray.filter(
     (el) => !user.chordsKnow.map((el) => el.chord)?.includes(el)
   );
-  console.log(filtChords, 'FILT');
+  //   console.log(filtChords, 'FILT');
 
   // THIS NEEDS TO BE MADE FUNCTIONAL FOR CHANGES WITHOUT RELOAD
   // //   setFilteredChordsArray({ chords: (sortedChordsArray.filter(
@@ -38,7 +38,7 @@ export default function Main({
   // //     setFilteredChordsArray();
   // //     // console.log(user, 'user here', songs, 'songs here')
   // //   }, []);
-  console.log(filteredChordsArray, 'filtered chords Array HERE AFTER');
+  //   console.log(filteredChordsArray, 'filtered chords Array HERE AFTER');
 
   const chordFrequency = (chord) => {
     let numberSongsContainingChord = 0;
@@ -83,7 +83,7 @@ export default function Main({
       },
     });
   };
-  console.log(user.chordsKnow, 'USER CHORDS KNOW HERE');
+  //   console.log(user.chordsKnow, 'USER CHORDS KNOW HERE');
 
   return (
     <div className="main">

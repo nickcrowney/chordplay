@@ -222,3 +222,7 @@ p {
 
 .header {
 }
+.your-progress {
+  font-weight: bold;
+  font-size: larger;
+}

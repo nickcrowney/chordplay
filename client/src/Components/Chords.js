@@ -1,7 +1,7 @@
 import Main from './Main';
 import ChordsKnow from './ChordsKnow';
 import ChordsDontKnow from './ChordsDontKnow';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../Styles/Chords.css';
 // import AChord from '../ChordImages/A.svg';
 // import { A, B } from '../ChordImages';
@@ -34,6 +34,7 @@ export default function Chords(props) {
     props.setUserChords((prev) => {
       return [...prev, currentChord];
     });
+
     console.log(currentChord, 'currentChord');
     // console.log(newChord, 'Chord User before');
 
@@ -65,18 +66,18 @@ export default function Chords(props) {
     // e.preventDefault();
     // setUser(user.chordsKnow.push(newChord)); -> user = ...
 
-    props.setUserChords((prev) => {
-      props.setUser((prev) => {
-        prev.chordsKnow.push({
-          chord: currentChord,
-          dateLearned: currentDate,
-        });
-        return prev;
-      });
+    // // // props.setUserChords((prev) => {
+    // // //   props.setUser((prev) => {
+    // // //     prev.chordsKnow.push({
+    // // //       chord: currentChord,
+    // // //       dateLearned: currentDate,
+    // // //     });
+    // // //     return prev;
+    // // //   });
 
-      prev.push(currentChord);
-      return prev;
-    });
+    // // //   prev.push(currentChord);
+    // // //   return prev;
+    // // // });
 
     fetch('http://localhost:3100/users/626040d11ab47a40bbac456b', {
       method: 'PATCH',
@@ -93,6 +94,12 @@ export default function Chords(props) {
     e.preventDefault();
     console.log(e.target.innerText, 'BUTTON CLICKED');
     console.log(newChord, 'Chord User before');
+
+    props.setUserChords((prev) => {
+      let index = prev.indexOf(currentChord);
+      prev.splice(index, 1);
+      return prev;
+    });
 
     setNewChord({
       chord: currentChord,

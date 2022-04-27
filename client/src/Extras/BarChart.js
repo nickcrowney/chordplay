@@ -5,7 +5,7 @@ import { Chart as ChartJS } from 'chart.js/auto';
 function BarChart({ chartData }) {
   return (
     <div className="bar-chart">
-      Your Progress:
+      <div className="your-progress">Your Progress:</div>
       <Bar
         data={chartData}
         options={{
@@ -13,31 +13,31 @@ function BarChart({ chartData }) {
             legend: {
               display: false,
             },
-            scales: {
-              yAxes: [
-                {
-                  scaleLabel: {
-                    display: true,
-                    labelString: 'Y text',
-                  },
-                },
-              ],
-              xAxes: [
-                {
-                  scaleLabel: {
-                    display: true,
-                    labelString: 'X text',
-                  },
-                },
-              ],
+            // scales: {
+            //   yAxes: [
+            //     {
+            //       scaleLabel: {
+            //         display: false,
+            //         labelString: 'Y text',
+            //       },
+            //     },
+            //   ],
+            //   xAxes: [
+            //     {
+            //       scaleLabel: {
+            //         display: true,
+            //         labelString: 'X text',
+            //       },
+            //     },
+            //   ],
 
-              // x: {
-              //     type: 'time',
-              //     time: {
-              //       unit: 'year'
-              //     }
-              // }
-            },
+            //   // x: {
+            //   //     type: 'time',
+            //   //     time: {
+            //   //       unit: 'year'
+            //   //     }
+            //   // }
+            // },
           },
         }}
       />

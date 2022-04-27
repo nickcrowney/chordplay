@@ -31,8 +31,8 @@ function SidebarRight({
           <div>Last chord you</div>
           <div>learned...</div>
           <div className="right-know-chords">
-            {user.chordsKnow.length
-              ? user.chordsKnow[user.chordsKnow.length - 1].chord
+            {userChords?.length
+              ? userChords[userChords.length - 1]
               : "None... Let's get started!"}
           </div>
         </div>

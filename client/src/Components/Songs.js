@@ -19,7 +19,7 @@ export default function Songs({
   // console.log(songs.length, 'SONGS TOTAL')
   // console.log(userChords, 'USER CHORDS HERE!!!')
   //   let canPlaySongs = [];
-  let chordsUserCanPlay = user.chordsKnow.map((el) => el.chord);
+  let chordsUserCanPlay = userChords.map((el) => el);
   console.log(userSongsMastered, 'userSongsMastered');
 
   // //   const checkOnlyChords = (user) => {

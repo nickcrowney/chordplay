@@ -50,33 +50,33 @@ function Home(props) {
         borderWidth: 1,
       },
     ],
-    options: {
-      scales: {
-        yAxes: [
-          {
-            scaleLabel: {
-              display: true,
-              labelString: 'Y text',
-            },
-          },
-        ],
-        xAxes: [
-          {
-            scaleLabel: {
-              display: true,
-              labelString: 'X text',
-            },
-          },
-        ],
+    // options: {
+    //   scales: {
+    //     yAxes: [
+    //       {
+    //         scaleLabel: {
+    //           display: false,
+    //           labelString: 'Y text',
+    //         },
+    //       },
+    //     ],
+    //     xAxes: [
+    //       {
+    //         scaleLabel: {
+    //           display: true,
+    //           labelString: 'X text',
+    //         },
+    //       },
+    //     ],
 
-        // x: {
-        //     type: 'time',
-        //     time: {
-        //       unit: 'year'
-        //     }
-        // }
-      },
-    },
+    //     // x: {
+    //     //     type: 'time',
+    //     //     time: {
+    //     //       unit: 'year'
+    //     //     }
+    //     // }
+    //   },
+    // },
   });
 
   const homeQuotes = [
