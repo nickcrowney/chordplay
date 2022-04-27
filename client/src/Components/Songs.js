@@ -89,11 +89,17 @@ export default function Songs({
 
   const noneFalse = relevantSongsFinder(songs, user, 0);
   console.log(noneFalse, 'CAN PLAY SONGS');
-  const noneFalseAdjusted = noneFalse.map((el, i) =>
-    userSongsMastered.every((el) => el.title) === el.title
-      ? noneFalse.splice(i, 1)
-      : el
-  );
+
+  //   const noneFalseAdjusted = noneFalse.map((el, i) =>
+  //     userSongsMastered.every((el) => el.title) === el.title
+  //       ? noneFalse.splice(i, 1)
+  //       : el
+  //   );
+  const noneFalseAdjusted = noneFalse.filter(function (objFromA) {
+    return !userSongsMastered.find(function (objFromB) {
+      return objFromA.title === objFromB.title;
+    });
+  });
   console.log(noneFalseAdjusted, 'ADJUSTED');
   const oneFalse = relevantSongsFinder(songs, user, 1);
   //   console.log(oneFalse, 'ONE FALSE')
@@ -127,7 +133,9 @@ export default function Songs({
                   //     });
                   //   }}
                 ></input>
-                <button onClick={handleClick}>Enter</button>
+                <button className="filter-button" onClick={handleClick}>
+                  Enter
+                </button>
               </div>
             </form>
           </div>
@@ -143,8 +151,8 @@ export default function Songs({
                 : ''}
               <ul>
                 <div className="songs-know songs-scroll">
-                  {noneFalse &&
-                    noneFalse.map((el) => {
+                  {noneFalseAdjusted &&
+                    noneFalseAdjusted.map((el) => {
                       return (
                         <SongList
                           user={user}

@@ -31,7 +31,10 @@ export default function Chords(props) {
 
   const handleClickLearned = (e) => {
     e.preventDefault();
-    console.log(e.target.innerText, 'BUTTON CLICKED');
+    props.setUserChords((prev) => {
+      return [...prev, currentChord];
+    });
+    console.log(currentChord, 'currentChord');
     // console.log(newChord, 'Chord User before');
 
     setNewChord({

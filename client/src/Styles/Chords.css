@@ -126,3 +126,15 @@
 .chords-section-d {
   margin-bottom: 2vh;
 }
+.filter-button {
+  background-color: #282c34d4;
+  color: white;
+  height: 2.5vh;
+  width: 5vw;
+  font-size: medium;
+  border: 0;
+  outline-style: auto;
+  outline-color: white;
+  margin-top: 10px;
+  margin-left: 5px;
+}

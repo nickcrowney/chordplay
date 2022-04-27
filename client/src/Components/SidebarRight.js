@@ -17,7 +17,8 @@ function SidebarRight({
         <div className="chordsknow-notification">
           <div>You know...</div>
           <div className="right-know-chords">
-            {user.chordsKnow ? user.chordsKnow.length : 0} chords
+            {userChords ? userChords.length : 0} chords
+            {/* {user.chordsKnow ? user.chordsKnow.length : 0} chords */}
           </div>
         </div>
         <div className="chordsknow-notification">

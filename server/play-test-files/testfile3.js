@@ -97,15 +97,69 @@ userSongsMastered = [
     chords: ['C', 'C/E', 'F', 'Am', 'D', 'F#'],
   },
 ];
-console.log(noneFalse, 'CAN PLAY SONGS');
-const noneFalseAdjusted = noneFalse.map((el, i) => {
-  let spreadSongs = userSongsMastered.map((el) => el.title);
-  spreadSongs.includes(el.title) ? noneFalse.splice(i, 1) : '';
+
+const noneFalseAdjusted = noneFalse.filter(function (objFromA) {
+  return !userSongsMastered.find(function (objFromB) {
+    return objFromA.title === objFromB.title;
+  });
 });
+
+// const noneFalseAdjusted = [userSongsMastered.map((el) =>
+//   noneFalse.filter((song) => song.title === el.title)
+// )];
+// console.log(noneFalse, 'CAN PLAY SONGS');
+// const noneFalseAdjusted = noneFalse.map((el, i) => {
+//   let spreadSongs = userSongsMastered.map((el) => el.title);
+//   spreadSongs.includes(el.title) ? noneFalse.splice(i, 1) : '';
+// });
 
 //   userSongsMastered.map((el) =>
 //     el.title === el.title ? noneFalse.splice(i, 1) : el
 //   )
 // );
 
+// console.log(noneFalse, 'CAN PLAY SONGS');
+// const noneFalseAdjusted = noneFalse.map((el, i) =>
+//   userSongsMastered.map((song) => song.title) === el.title
+//     ? noneFalse.splice(i, 1)
+//     : el
+// );
 console.log(noneFalseAdjusted, 'none false adjusted');
+
+// console.log(noneFalse, 'nonefalse before');
+// const spliced = noneFalse.splice(1, 1);
+// console.log(spliced, 'spliced');
+// console.log(noneFalse, 'nonefalse after');
+
+// var a = [
+//   {
+//     id: '1',
+//     name: 'a1',
+//   },
+//   {
+//     id: '2',
+//     name: 'a2',
+//   },
+//   {
+//     id: '3',
+//     name: 'a3',
+//   },
+// ];
+// var b = [
+//   {
+//     id: '2',
+//     name: 'a2',
+//   },
+//   {
+//     id: '3',
+//     name: 'a3',
+//   },
+// ];
+
+// var c = a.filter(function (objFromA) {
+//   return !b.find(function (objFromB) {
+//     return objFromA.id === objFromB.id;
+//   });
+// });
+
+// console.log(c);
