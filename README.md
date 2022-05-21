@@ -1,4 +1,4 @@
-# chordplay
+# chord
 
 This app has 3 pages.
 -still needs a lot of nice rendering
